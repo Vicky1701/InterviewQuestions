@@ -168,103 +168,130 @@ public void requestStop() {
 
 **Conclusion:** Handle checked exceptions explicitly; unchecked exceptions indicate programming errors.
 
-### Question: Explain the concept of method references in Java 8
-**Answer:**
-- Method references provide a shorthand for calling methods via the `::` operator.
-- They improve code readability and are often used with functional interfaces and streams.
-- Example: `list.forEach(System.out::println);` is equivalent to `list.forEach(x -> System.out.println(x));`
-- Types: Reference to a static method, instance method, or constructor.
-**Conclusion:** Method references make code concise and expressive, especially in functional programming contexts.
+### Question 11: Explain the concept of method references in Java 8
 
-### Question: What are the different types of memory areas in JVM?
-**Answer:**
-- Heap: Stores objects and instance variables.
-- Stack: Stores method frames, local variables, and partial results.
-- Method Area: Stores class metadata, static variables, and constants.
-- Program Counter Register: Tracks the current instruction.
-- Native Method Stack: Supports native (non-Java) methods.
-**Conclusion:** Understanding JVM memory areas helps in optimizing performance and troubleshooting memory issues.
-
-### Question: How does the default keyword work in interfaces (Java 8)?
-**Answer:**
-- The `default` keyword allows interfaces to have concrete methods with a default implementation.
-- Enables backward compatibility and interface evolution.
+- Method references use the `::` operator to refer to methods directly, making code more concise and readable.
+- They are a shorthand for lambda expressions that call existing methods.
+- Types of method references:
+  - Reference to a static method: `ClassName::staticMethod`
+  - Reference to an instance method of a particular object: `instance::instanceMethod`
+  - Reference to an instance method of an arbitrary object: `ClassName::instanceMethod`
+  - Reference to a constructor: `ClassName::new`
 - Example:
+
+  ```java
+  list.forEach(System.out::println);
+  ```
+
+### Question 12: What are the different types of memory areas in JVM
+
+- **Method Area:** Stores class metadata, static variables, and method code.
+- **Heap:** Stores all objects and their instance variables.
+- **Stack:** Stores method call frames, local variables, and partial results.
+- **Program Counter (PC) Register:** Tracks the current instruction for each thread.
+- **Native Method Stack:** Used for native (non-Java) method calls.
+
+### Question 13: How does the default keyword work in interfaces (Java 8)
+
+- The `default` keyword allows interfaces to have concrete methods with a default implementation.
+- Enables adding new methods to interfaces without breaking existing implementations.
+- Syntax:
+
   ```java
   interface MyInterface {
-      default void show() { System.out.println("Default method"); }
+      default void myMethod() { /* implementation */ }
   }
   ```
-**Conclusion:** Default methods allow interfaces to evolve without breaking existing implementations.
+- Implementing classes can override default methods if needed.
 
-### Question: Explain the difference between Comparable and Comparator
-**Answer:**
-- `Comparable` is used for natural ordering; a class implements it and overrides `compareTo()`.
-- `Comparator` is used for custom ordering; it is a separate object implementing `compare()`.
-- Example: `Collections.sort(list)` uses `Comparable`; `Collections.sort(list, comparator)` uses `Comparator`.
-**Conclusion:** Use `Comparable` for default sorting, `Comparator` for custom sorting logic.
+### Question 14: Explain the difference between Comparable and Comparator
 
-### Question: What is the difference between String, StringBuilder, and StringBuffer?
-**Answer:**
-- `String` is immutable; any modification creates a new object.
-- `StringBuilder` is mutable and not thread-safe; suitable for single-threaded scenarios.
-- `StringBuffer` is mutable and thread-safe; suitable for multi-threaded scenarios.
-**Conclusion:** Use `StringBuilder` for efficient string manipulation in single-threaded contexts, `StringBuffer` for thread safety.
+- **Comparable:**
+  - Used for natural ordering of objects.
+  - Must implement `compareTo()` method in the class.
+  - Example: `public int compareTo(Object o)`
+  - Used when objects have a single, default sort order.
+- **Comparator:**
+  - Used for custom ordering of objects.
+  - Must implement `compare(Object o1, Object o2)` method.
+  - Can be used to sort objects in multiple ways.
 
-### Question: How do you implement multithreading in Java?
-**Answer:**
-- Extend the `Thread` class or implement the `Runnable`/`Callable` interface.
-- Override the `run()` method for `Runnable` or `call()` for `Callable`.
-- Start threads using `start()` method.
+### Question 15: What is the difference between String, StringBuilder, and StringBuffer
+
+- **String:**
+  - Immutable; any modification creates a new object.
+  - Thread-safe due to immutability.
+- **StringBuilder:**
+  - Mutable; can change content without creating new objects.
+  - Not thread-safe; faster for single-threaded scenarios.
+- **StringBuffer:**
+  - Mutable and thread-safe (synchronized methods).
+  - Slightly slower than StringBuilder due to synchronization.
+
+### Question 16: How do you implement multithreading in Java
+
+- **Extending Thread class:** Override the `run()` method in a subclass of `Thread`.
+- **Implementing Runnable interface:** Implement the `run()` method and pass the object to a `Thread`.
+- **Using Executor framework:** Use `ExecutorService` for managing thread pools and asynchronous tasks.
 - Example:
+
   ```java
   new Thread(() -> System.out.println("Hello")).start();
   ```
-**Conclusion:** Use threads to perform tasks concurrently and improve application responsiveness.
 
-### Question: Explain the concept of immutability in Java with examples
-**Answer:**
-- An immutable object’s state cannot change after creation.
+### Question 17: Explain the concept of immutability in Java with examples
+
+- Immutable objects cannot be changed after creation.
+- Benefits: thread-safety, simplicity, and safe sharing.
 - Example: `String` is immutable.
-- To create custom immutable classes: make fields final, private, and do not provide setters.
-- Example:
-  ```java
-  final class Person {
-      private final String name;
-      public Person(String name) { this.name = name; }
-      public String getName() { return name; }
-  }
-  ```
-**Conclusion:** Immutability ensures thread safety and predictability.
+- To create an immutable class:
+  - Make the class `final`.
+  - Make fields `private final`.
+  - No setters; only getters.
+  - Initialize fields via constructor.
 
-### Question: What are the new date-time APIs introduced in Java 8?
-**Answer:**
-- Java 8 introduced `java.time` package (JSR-310).
-- Key classes: `LocalDate`, `LocalTime`, `LocalDateTime`, `ZonedDateTime`, `Period`, `Duration`.
-- Immutable and thread-safe.
-- Example: `LocalDate.now()`, `LocalDate.parse("2025-06-10")`.
-**Conclusion:** New APIs provide a comprehensive, immutable, and thread-safe approach to date and time handling.
+### Question 18: What are the new date-time APIs introduced in Java 8
 
-### Question: How does method overloading and overriding work in Java?
-**Answer:**
-- Overloading: Same method name, different parameter lists within the same class.
-- Overriding: Subclass provides a specific implementation for a superclass method.
-- Overloading is compile-time polymorphism; overriding is runtime polymorphism.
-**Conclusion:** Overloading increases flexibility; overriding enables dynamic behavior.
+- **java.time.LocalDate:** Date without time.
+- **java.time.LocalTime:** Time without date.
+- **java.time.LocalDateTime:** Date and time without timezone.
+- **java.time.ZonedDateTime:** Date and time with timezone.
+- **java.time.Duration/Period:** Amount of time or date difference.
+- All are immutable and thread-safe, replacing older `Date` and `Calendar` classes.
 
-### Question: Explain the concept of generics in Java
-**Answer:**
+### Question 19: How does method overloading and overriding work in Java
+
+- **Overloading:**
+  - Same method name, different parameter lists within the same class.
+  - Compile-time polymorphism.
+- **Overriding:**
+  - Subclass provides a specific implementation of a method declared in its superclass.
+  - Run-time polymorphism.
+  - Method signature must be the same.
+
+### Question 20: Explain the concept of generics in Java
+
 - Generics enable classes, interfaces, and methods to operate on types specified by the programmer.
-- Provide type safety and eliminate the need for type casting.
-- Example: `List<String> list = new ArrayList<>();`
-**Conclusion:** Generics improve code reusability and type safety.
+- Provide compile-time type safety and eliminate the need for type casting.
+- Example:
 
-### Question: What is the difference between abstract class and interface?
-**Answer:**
-- Abstract class can have both abstract and concrete methods; interface (Java 8+) can have abstract, default, and static methods.
-- Abstract class supports constructors and state (fields); interface cannot have constructors and fields are implicitly public static final.
-- A class can implement multiple interfaces but only extend one abstract class.
-**Conclusion:** Use interfaces for contracts, abstract classes for shared base functionality.
+  ```java
+  List<String> list = new ArrayList<>();
+  ```
+- Prevents runtime `ClassCastException`.
+
+### Question 21: What is the difference between abstract class and interface
+
+- **Abstract Class:**
+  - Can have abstract and concrete methods.
+  - Can have state (fields).
+  - Supports constructors.
+  - Single inheritance.
+- **Interface:**
+  - Only abstract methods (Java 8+: default/static methods allowed).
+  - No state (except static/final fields).
+  - No constructors.
+  - Multiple inheritance (a class can implement multiple interfaces).
 
 ### Question: How do you handle memory leaks in Java applications?
 **Answer:**
