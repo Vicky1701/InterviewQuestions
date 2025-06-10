@@ -25,18 +25,20 @@
 ### Question 6: What are functional interfaces, and can you name a few built-in ones?
 **Answer:** A functional interface has one abstract method and can be implemented with a lambda. Examples:
 Function<T, R> – Takes T and returns R
-
 Predicate<T> – Returns boolean
-
 Consumer<T> – Performs an action
-
 Supplier<T> – Provides a value
-
 Runnable – Runs code without parameters or return
 **Conclusion:** Functional interfaces enable functional programming in Java.
 
 ### Question 7: How does garbage collection work in Java, and what are the different types?
-**Answer:** Garbage collection automatically frees memory by removing unreachable objects. JVM collectors include Serial, Parallel, CMS, and G1, each with different performance characteristics.
+**Answer:** Garbage collection automatically frees memory by removing unreachable objects. 
+Types of Garbage Collectors:
+Serial GC – Single-threaded, for small apps.
+Parallel GC – Multi-threaded, default in many JVMs.
+CMS (Concurrent Mark Sweep) – Low pause time.
+G1 (Garbage First) – Balances throughput and low pause time.
+ZGC / Shenandoah (Java 11+) – Ultra-low latency.
 **Conclusion:** Understanding GC helps optimize application performance.
 
 ### Question 8: Explain the difference between HashMap and ConcurrentHashMap.
