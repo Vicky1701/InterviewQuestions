@@ -33,24 +33,140 @@
 
 ### Question 7: How does garbage collection work in Java, and what are the different types?
 **Answer:** Garbage collection automatically frees memory by removing unreachable objects. 
-Types of Garbage Collectors:
-Serial GC – Single-threaded, for small apps.
-Parallel GC – Multi-threaded, default in many JVMs.
-CMS (Concurrent Mark Sweep) – Low pause time.
-G1 (Garbage First) – Balances throughput and low pause time.
-ZGC / Shenandoah (Java 11+) – Ultra-low latency.
+**How It Works:**
+- JVM identifies unreachable objects (those with no references).
+- GC process clears those objects to free heap memory.
+**Types of Garbage Collectors:**
+- Serial GC – Single-threaded, for small apps.
+- Parallel GC – Multi-threaded, default in many JVMs.
+- CMS (Concurrent Mark Sweep) – Low pause time.
+- G1 (Garbage First) – Balances throughput and low pause time.
+- ZGC / Shenandoah (Java 11+) – Ultra-low latency.
 **Conclusion:** Understanding GC helps optimize application performance.
 
 ### Question 8: Explain the difference between HashMap and ConcurrentHashMap.
-**Answer:** `HashMap` is not thread-safe; `ConcurrentHashMap` is thread-safe and allows concurrent access without locking the entire map.
+**Answer:** `HashMap` 
+***What is a HashMap?***
+- Stores key-value pairs.
+- Not synchronized → Multiple threads modifying it can lead to data corruption.
+***What is a ConcurrentHashMap?***
+- A thread-safe version of HashMap.
+- Internally divides the map into segments or buckets, each with its own lock (in earlier versions).
+- In Java 8+, it uses bucket-level locking via synchronized blocks.
+  
 **Conclusion:** Use `ConcurrentHashMap` for thread-safe operations.
 
 ### Question 9: What is the difference between synchronized and volatile keywords?
-**Answer:** `synchronized` ensures mutual exclusion and visibility for critical sections; `volatile` only guarantees visibility of changes to variables across threads, not atomicity.
-**Conclusion:** Use `synchronized` for atomic operations, `volatile` for visibility.
+**Answer:** 
+# Java Synchronized vs Volatile - Complete Guide
+
+## 🔐 Synchronized
+
+**What is synchronized?**
+- Makes a block or method mutually exclusive — only one thread at a time can execute it
+- Ensures both **atomicity** and **visibility**
+- Can be applied to methods or code blocks
+
+### Example:
+```java
+synchronized void increment() {
+    counter++; // Only one thread can execute this at a time
+}
+
+// Or using synchronized block
+void updateData() {
+    synchronized(this) {
+        // Critical section - only one thread at a time
+        data.add(newValue);
+        counter++;
+    }
+}
+```
+
+### Use When:
+- You need to execute compound operations (read-modify-write) safely in multi-threaded code
+- Examples: updating counters, modifying shared collections, complex state changes
+- Multiple threads need to modify the same resource
+
+---
+
+## ⚡ Volatile
+
+**What is volatile?**
+- Used for **variables only** (not methods or blocks)
+- Ensures changes made by one thread are immediately **visible** to other threads
+- Does **NOT** ensure atomicity for compound operations
+
+### Example:
+```java
+private volatile boolean running = true;
+
+public void stop() {
+    running = false; // Change is immediately visible to other threads
+}
+
+public void run() {
+    while (running) {
+        // Do work...
+    }
+}
+```
+
+### Use When:
+- You have a **single writer** and **multiple readers**
+- Common use cases: flags like `isRunning`, `isStopped`, configuration values
+- Simple assignments where atomicity isn't required
+
+---
+
+## Key Differences
+
+| Aspect | Synchronized | Volatile |
+|--------|-------------|----------|
+| **Scope** | Methods/blocks | Variables only |
+| **Atomicity** | ✅ Guaranteed | ❌ Not guaranteed |
+| **Visibility** | ✅ Guaranteed | ✅ Guaranteed |
+| **Performance** | Slower (blocking) | Faster (non-blocking) |
+| **Use Case** | Complex operations | Simple flag/state variables |
+
+---
+
+## When to Use Which?
+
+### Use `synchronized` when:
+- Multiple threads modify the same data
+- You need atomic compound operations
+- Thread safety is critical for complex state changes
+
+### Use `volatile` when:
+- One thread writes, others only read
+- Simple flag variables or configuration values
+- You need visibility without the overhead of synchronization
+
+### Example Comparison:
+```java
+// ❌ Wrong - volatile doesn't make increment atomic
+private volatile int counter = 0;
+public void increment() {
+    counter++; // Race condition possible!
+}
+
+// ✅ Correct - synchronized ensures atomicity
+private int counter = 0;
+public synchronized void increment() {
+    counter++; // Thread-safe
+}
+
+// ✅ Correct - volatile perfect for flags
+private volatile boolean stopRequested = false;
+public void requestStop() {
+    stopRequested = true; // Simple assignment, no race condition
+}
+```
 
 ### Question 10: How do you handle exceptions in Java, and what's the difference between checked and unchecked exceptions?
 **Answer:** Exceptions are handled with try-catch blocks. Checked exceptions must be declared or handled; unchecked exceptions (RuntimeException) do not. Example: `IOException` (checked), `NullPointerException` (unchecked).
+
 **Conclusion:** Handle checked exceptions explicitly; unchecked exceptions indicate programming errors.
 
 ### Question: Explain the concept of method references in Java 8
