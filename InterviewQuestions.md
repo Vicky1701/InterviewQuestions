@@ -281,7 +281,10 @@ public void requestStop() {
 - Prevents runtime `ClassCastException`.
 
 ### Question 21: What is the difference between abstract class and interface
-
+- An abstract class is a class that cannot be instantiated and may contain abstract methods (without implementation) and concrete methods (with implementation).
+- An interface is a contract that specifies method signatures without implementation (until Java 7).
+  From Java 8 onward, interfaces can contain default and static methods with implementation, and from Java 9 onward, private methods too
+  
 - **Abstract Class:**
   - Can have abstract and concrete methods.
   - Can have state (fields).
@@ -293,176 +296,249 @@ public void requestStop() {
   - No constructors.
   - Multiple inheritance (a class can implement multiple interfaces).
 
-### Question: How do you handle memory leaks in Java applications?
-**Answer:**
-- Avoid holding unnecessary object references.
-- Use weak references for cache or listeners.
-- Close resources (files, streams, DB connections) promptly.
-- Use profiling tools (e.g., VisualVM) to detect leaks.
-**Conclusion:** Proactive resource management and profiling prevent memory leaks.
+### Question 22: How do you handle memory leaks in Java applications?
 
-### Question: Explain the concept of reflection in Java
-**Answer:**
+- Use tools like VisualVM, Eclipse MAT, or Java Flight Recorder to detect memory leaks.
+- Always remove unused object references, especially in static fields and collections.
+- Be careful with listeners, caches, and thread-local variables; unregister or clear them when not needed.
+- Use weak references for objects that can be garbage collected.
+- Regularly profile and monitor memory usage in production.
+
+### Question 23: Explain the concept of reflection in Java
+
 - Reflection allows inspection and modification of classes, methods, and fields at runtime.
-- Used for frameworks, dependency injection, and testing.
-- Example: `Class.forName("com.example.MyClass")`.
-- Can impact performance and security.
-**Conclusion:** Use reflection judiciously for dynamic behavior.
-
-### Question: What are the different types of collections in Java?
-**Answer:**
-- List (ArrayList, LinkedList), Set (HashSet, TreeSet), Queue (PriorityQueue), Map (HashMap, TreeMap).
-- Each type serves different use cases (ordering, uniqueness, key-value pairs).
-**Conclusion:** Choose collection types based on requirements for ordering, uniqueness, and performance.
-
-### Question: How does the forEach method work with collections?
-**Answer:**
-- `forEach` is a default method in `Iterable` and streams.
-- Accepts a lambda or method reference to process each element.
-- Example: `list.forEach(System.out::println);`
-**Conclusion:** `forEach` simplifies iteration and improves code readability.
-
-### Question: Explain the concept of thread safety in Java
-**Answer:**
-- Thread safety ensures correct behavior when multiple threads access shared data.
-- Achieved via synchronization, concurrent collections, and immutability.
-- Example: Using `synchronized` blocks or `ConcurrentHashMap`.
-**Conclusion:** Thread safety is critical for reliable concurrent applications.
-
-### Question: What is the difference between final, finally, and finalize?
-**Answer:**
-- `final`: Keyword to mark variables as constants, methods as non-overridable, and classes as non-inheritable.
-- `finally`: Block in exception handling that always executes.
-- `finalize()`: Method called by GC before object removal (deprecated in recent Java).
-**Conclusion:** Each serves a distinct purpose in Java’s type, exception, and memory management.
-
-### Question: How do you implement custom annotations in Java?
-**Answer:**
-- Define with `@interface` keyword.
-- Can specify retention policy and target.
+- Enables dynamic object creation, method invocation, and access to private members.
+- Used in frameworks (e.g., Spring, Hibernate), serialization, and testing tools.
 - Example:
+
+  ```java
+  Class<?> clazz = Class.forName("java.util.ArrayList");
+  Method m = clazz.getMethod("size");
+  Object result = m.invoke(new ArrayList<>());
+  ```
+- Use reflection carefully; it can impact performance and security.
+
+### Question 24: What are the different types of collections in Java?
+
+- **List:** Ordered collection, allows duplicates (e.g., ArrayList, LinkedList).
+- **Set:** Unordered, no duplicates (e.g., HashSet, LinkedHashSet, TreeSet).
+- **Queue/Deque:** For FIFO/LIFO operations (e.g., LinkedList, ArrayDeque, PriorityQueue).
+- **Map:** Key-value pairs, no duplicate keys (e.g., HashMap, TreeMap, LinkedHashMap).
+
+### Question 25: How does the forEach method work with collections?
+
+- `forEach` is a default method in the `Iterable` interface (Java 8+).
+- Accepts a lambda expression or method reference to process each element.
+- Example:
+
+  ```java
+  list.forEach(item -> System.out.println(item));
+  // or
+  list.forEach(System.out::println);
+  ```
+- Improves code readability and supports functional programming.
+
+### Question 26: Explain the concept of thread safety in Java
+
+- Thread safety means shared data is accessed and modified by multiple threads without causing data inconsistency.
+- Achieved using synchronization, locks, thread-safe collections, and immutability.
+- Use `synchronized`, `volatile`, `Atomic` classes, or concurrent collections (e.g., `ConcurrentHashMap`).
+- Minimize shared mutable state to reduce synchronization needs.
+
+### Question 27: What is the difference between final, finally, and finalize?
+
+- **final:** Keyword to mark variables as constants, methods as non-overridable, and classes as non-inheritable.
+- **finally:** Block in try-catch-finally; always executes after try/catch, used for cleanup.
+- **finalize():** Method called by GC before object is collected (deprecated in Java 9+; avoid using).
+
+### Question 28: How do you implement custom annotations in Java?
+
+- Define annotation using `@interface`.
+- Specify retention policy (`@Retention`) and target (`@Target`).
+- Example:
+
   ```java
   @Retention(RetentionPolicy.RUNTIME)
   @Target(ElementType.METHOD)
-  public @interface MyAnnotation {}
+  public @interface MyAnnotation {
+      String value();
+  }
   ```
-**Conclusion:** Custom annotations enable metadata-driven programming.
+- Use reflection to process annotations at runtime.
 
-### Question: Explain the concept of serialization and deserialization
-**Answer:**
-- Serialization converts an object into a byte stream for storage or transmission.
-- Deserialization reconstructs the object from the byte stream.
-- Implement `Serializable` interface to enable.
-**Conclusion:** Serialization is essential for persistence and communication.
+### Question 29: Explain the concept of serialization and deserialization
 
-### Question: What are the performance improvements in Java 11 and later versions?
-**Answer:**
-- Enhanced garbage collectors (ZGC, Shenandoah).
-- Improved startup and memory footprint.
-- New APIs (e.g., `HttpClient`), local-variable syntax for lambda parameters.
-- Better container awareness and JVM optimizations.
-**Conclusion:** Java 11+ offers better performance, modern APIs, and improved resource management.
+- **Serialization:** Converting an object into a byte stream for storage or transmission.
+- **Deserialization:** Reconstructing the object from the byte stream.
+- Implement `Serializable` interface to enable serialization.
+- Use `ObjectOutputStream` and `ObjectInputStream` for writing/reading objects.
+- Example:
 
-### Question: Explain the difference between ArrayList and LinkedList. When would you use each?
-**Answer:**
-- `ArrayList` uses a dynamic array; fast random access, slow insert/delete in the middle.
-- `LinkedList` uses a doubly-linked list; fast insert/delete, slow random access.
-- Use `ArrayList` for frequent access, `LinkedList` for frequent insertions/deletions.
-**Conclusion:** Choose based on access vs. modification needs.
+  ```java
+  ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data.ser"));
+  out.writeObject(obj);
+  // ...
+  ObjectInputStream in = new ObjectInputStream(new FileInputStream("data.ser"));
+  MyClass obj = (MyClass) in.readObject();
+  ```
 
-### Question: What are design patterns? Explain Singleton, Factory, and Observer patterns with examples.
-**Answer:**
-- Design patterns are proven solutions to common software design problems.
-- Singleton: Ensures a class has only one instance. Example: `private static final Singleton INSTANCE = new Singleton();`
-- Factory: Creates objects without exposing instantiation logic. Example: `ShapeFactory.getShape("CIRCLE");`
-- Observer: Notifies dependent objects of state changes. Example: `Observer` interface in Java.
-**Conclusion:** Patterns improve code reusability and maintainability.
+### Question 30: What are the performance improvements in Java 11 and later versions?
 
-### Question: How does HashMap work internally? What happens during collision?
-**Answer:**
-- HashMap uses an array of buckets and hash function.
-- On collision, stores entries in a linked list or tree (Java 8+).
-- Good hashCode and equals implementations reduce collisions.
-**Conclusion:** Understanding internals helps optimize performance and avoid bugs.
+- Improved JVM performance and reduced memory footprint.
+- New garbage collectors: ZGC, Shenandoah (low-latency, scalable GC).
+- Flight Recorder and Mission Control for better profiling.
+- Enhanced String, Collection, and Stream APIs.
+- Faster startup and lower resource usage in containers/cloud.
+- New language features: var for lambda parameters, local-variable syntax for lambda, HTTP Client API, etc.
 
-### Question: Explain Java Memory Model and the concept of volatile keyword.
-**Answer:**
-- Java Memory Model defines how threads interact through memory.
-- `volatile` ensures visibility of changes to variables across threads.
-- Does not guarantee atomicity.
-**Conclusion:** Use `volatile` for visibility, not for atomic operations.
+### Question 31: Explain the difference between ArrayList and LinkedList. When would you use each?
 
-### Question: How do you implement equals() and hashCode() methods? What is their contract?
-**Answer:**
-- `equals()` checks logical equality; `hashCode()` returns an int for hashing.
-- Contract: Equal objects must have equal hash codes.
-- Use IDE or Objects.equals/hash for implementation.
-**Conclusion:** Proper implementation ensures correct behavior in collections.
+- **ArrayList:**
+  - Backed by a dynamic array.
+  - Fast random access (O(1)), slow insert/delete in the middle (O(n)).
+  - Use when you need fast access and infrequent insertions/deletions.
+- **LinkedList:**
+  - Doubly-linked list.
+  - Fast insert/delete at ends (O(1)), slow random access (O(n)).
+  - Use when you need frequent insertions/deletions, especially at the ends.
 
-### Question: What is the difference between fail-fast and fail-safe iterators?
-**Answer:**
-- Fail-fast: Throw `ConcurrentModificationException` if collection modified during iteration (e.g., ArrayList).
-- Fail-safe: Work on a copy, do not throw exception (e.g., ConcurrentHashMap).
-**Conclusion:** Fail-safe is safer for concurrent modifications.
+### Question 32: What are design patterns? Explain Singleton, Factory, and Observer patterns with examples
 
-### Question: Explain JVM architecture and class loading mechanism.
-**Answer:**
-- JVM consists of class loader, memory areas, execution engine, and native interface.
-- Class loader loads classes in stages: Bootstrap, Extension, Application.
-- Verifies, prepares, and initializes classes before execution.
-**Conclusion:** JVM architecture enables platform independence and security.
+- **Design patterns:** Reusable solutions to common software design problems.
+- **Singleton:** Ensures only one instance of a class exists.
+  ```java
+  public class Singleton {
+      private static final Singleton instance = new Singleton();
+      private Singleton() {}
+      public static Singleton getInstance() { return instance; }
+  }
+  ```
+- **Factory:** Creates objects without exposing instantiation logic.
+  ```java
+  public interface Shape { }
+  public class Circle implements Shape { }
+  public class ShapeFactory {
+      public Shape getShape(String type) {
+          if (type.equals("circle")) return new Circle();
+          // ...
+      }
+  }
+  ```
+- **Observer:** Notifies multiple objects about state changes.
+  ```java
+  public interface Observer { void update(); }
+  public class Subject {
+      private List<Observer> observers = new ArrayList<>();
+      public void addObserver(Observer o) { observers.add(o); }
+      public void notifyAllObservers() { observers.forEach(Observer::update); }
+  }
+  ```
 
-### Question: What are the differences between JDK, JRE, and JVM?
-**Answer:**
-- JVM: Runs Java bytecode, platform-dependent.
-- JRE: JVM + libraries for running Java apps.
-- JDK: JRE + development tools (compiler, debugger).
-**Conclusion:** JDK is for development, JRE for running, JVM for execution.
+### Question 33: How does HashMap work internally? What happens during collision?
 
-### Question: How do you optimize Java application performance?
-**Answer:**
-- Use efficient algorithms and data structures.
-- Profile and monitor memory/CPU usage.
-- Tune JVM parameters (heap size, GC).
-- Minimize synchronization and I/O bottlenecks.
-**Conclusion:** Continuous profiling and tuning yield best performance.
+- HashMap uses an array of buckets; each key's hashCode determines its bucket.
+- On collision (same bucket), stores entries in a linked list (Java 8+: tree if many collisions).
+- When adding, checks for existing key (equals/hashCode), updates value if found.
+- Good hashCode implementation reduces collisions; resizing occurs when load factor is exceeded.
 
-### Question: What is the difference between composition and inheritance?
-**Answer:**
-- Inheritance: IS-A relationship; subclass extends superclass.
-- Composition: HAS-A relationship; class contains references to other objects.
-- Composition offers more flexibility and loose coupling.
-**Conclusion:** Prefer composition over inheritance for better design.
+### Question 34: Explain Java Memory Model and the concept of volatile keyword
 
-### Question: What are the different types of references in Java?
-**Answer:**
-- Strong: Default, prevents GC.
-- Soft: Cleared before OutOfMemoryError.
-- Weak: Cleared at next GC.
-- Phantom: Used for cleanup before GC.
-**Conclusion:** Use reference types for memory-sensitive applications.
+- The Java Memory Model (JMM) defines how threads interact through memory and what behaviors are allowed in concurrent execution.
+- It specifies rules for visibility, ordering, and atomicity of variable access.
+- The `volatile` keyword ensures that changes to a variable are always visible to other threads (no caching), but does not guarantee atomicity for compound actions.
+- Use `volatile` for variables that are read/written by multiple threads but do not require atomic operations.
 
-### Question: How do you implement producer-consumer pattern in Java?
-**Answer:**
-- Use shared queue (e.g., `BlockingQueue`) for communication.
+### Question 35: How do you implement equals() and hashCode() methods? What is their contract?
+
+- `equals()` checks logical equality; `hashCode()` returns an integer for hashing (e.g., in HashMap).
+- Contract:
+  - If two objects are equal (`equals()` returns true), they must have the same `hashCode()`.
+  - If two objects have the same `hashCode()`, they may or may not be equal.
+  - Consistency: `equals()` and `hashCode()` should consistently return the same result unless object state changes.
+- Implementation tips:
+  - Use all significant fields in both methods.
+  - Use `Objects.equals()` and `Objects.hash()` for null safety and simplicity (Java 7+).
+
+### Question 36: What is the difference between fail-fast and fail-safe iterators?
+
+- **Fail-fast:** Throw `ConcurrentModificationException` if the collection is modified during iteration (e.g., `ArrayList`, `HashMap`).
+- **Fail-safe:** Do not throw exceptions; iterate over a snapshot or copy (e.g., `CopyOnWriteArrayList`, `ConcurrentHashMap`).
+- Fail-fast is faster but not safe for concurrent modification; fail-safe is safe but may not reflect real-time changes.
+
+### Question 37: Explain JVM architecture and class loading mechanism
+
+- JVM architecture includes Class Loader, Runtime Data Areas (Heap, Stack, Method Area, etc.), Execution Engine, and Native Interface.
+- **Class loading:**
+  - Classes are loaded by Class Loaders (Bootstrap, Extension, Application).
+  - Loading: Reads class bytecode.
+  - Linking: Verifies, prepares, and (optionally) resolves classes.
+  - Initialization: Executes static initializers and static blocks.
+- Class loading is lazy and hierarchical.
+
+### Question 38: What are the differences between JDK, JRE, and JVM?
+
+- **JVM (Java Virtual Machine):** Runs Java bytecode; platform-dependent implementation.
+- **JRE (Java Runtime Environment):** JVM + core libraries + supporting files; used to run Java applications.
+- **JDK (Java Development Kit):** JRE + development tools (compiler, debugger, etc.); used to develop Java applications.
+
+### Question 39: How do you optimize Java application performance?
+
+- Profile and monitor with tools (JVisualVM, JMC, profilers).
+- Use efficient data structures and algorithms.
+- Minimize object creation; reuse objects where possible.
+- Tune JVM parameters (heap size, GC options).
+- Use caching, lazy loading, and connection pooling.
+- Avoid synchronization bottlenecks; use concurrent collections.
+- Optimize SQL queries and I/O operations.
+
+### Question 40: What is the difference between composition and inheritance?
+
+- **Inheritance:** IS-A relationship; subclass inherits behavior from superclass.
+  - Promotes code reuse but can lead to tight coupling.
+- **Composition:** HAS-A relationship; class contains references to other objects.
+  - Promotes flexibility and loose coupling; preferred for code reuse.
+- Favor composition over inheritance for better maintainability.
+
+### Question 41: What are the different types of references in Java?
+
+- **Strong Reference:** Default; prevents GC of the object.
+- **Soft Reference:** Cleared only when memory is low; used for caches.
+- **Weak Reference:** Cleared at next GC; used for memory-sensitive caches, WeakHashMap.
+- **Phantom Reference:** Used for post-mortem cleanup; enqueued after object is finalized.
+
+### Question 42: How do you implement producer-consumer pattern in Java?
+
+- Use shared queue (e.g., `BlockingQueue`) for communication between producer and consumer threads.
 - Producer adds items; consumer removes items.
-- Synchronization or concurrent collections ensure thread safety.
-- Example: `ArrayBlockingQueue` with multiple producer/consumer threads.
-**Conclusion:** Use concurrent collections for efficient and safe producer-consumer implementation.
+- Use synchronization, wait/notify, or higher-level concurrency utilities.
+- Example with `BlockingQueue`:
 
-### Question: What is the difference between static and non-static methods?
-**Answer:**
-- Static methods belong to the class; called without an object.
-- Non-static methods belong to instances; require an object to call.
-- Static methods cannot access instance variables directly.
-**Conclusion:** Use static for utility or class-level logic, non-static for object-specific behavior.
+  ```java
+  BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
+  // Producer
+  queue.put(item);
+  // Consumer
+  Integer item = queue.take();
+  ```
 
-### Question: What are nested classes in Java? When would you use them?
-**Answer:**
-- Classes defined within another class.
-- Types: static nested, non-static inner, local, and anonymous.
-- Used for logical grouping, encapsulation, or event handling.
-**Conclusion:** Use nested classes to organize code and encapsulate helper logic.
+### Question 43: What is the difference between static and non-static methods?
+
+- **Static methods:** Belong to the class, not instances; can be called without creating an object.
+  - Cannot access instance variables/methods directly.
+- **Non-static methods:** Belong to object instances; can access instance and static members.
+- Use static methods for utility or helper functions.
+
+### Question 44: What are nested classes in Java? When would you use them?
+
+- Nested classes are classes defined within another class.
+- Types:
+  - **Static nested class:** Like a static member; cannot access outer class instance members.
+  - **Inner class:** Non-static; can access outer class instance members.
+  - **Local class:** Defined within a method.
+  - **Anonymous class:** No name; used for one-off implementations (e.g., event handlers).
+- Use nested classes to logically group classes, increase encapsulation, or for helper classes only used by the outer class.
+
+# SpringBoot
 
 ### Question: What is Spring Boot, and how does it differ from the traditional Spring Framework?
 **Answer:**
