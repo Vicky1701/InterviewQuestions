@@ -2,43 +2,43 @@
 
 ## 1. Core Java & Java 8+
 
-### Question: What are the main features of Java 8+ that you find most beneficial for development?
+### Question 1: What are the main features of Java 8+ that you find most beneficial for development?
 **Answer:** Java 8 introduced Lambda Expressions, Stream API, Functional Interfaces, Optional, new Date-Time API, and default/static methods in interfaces. These features enable functional programming, concise code, and safer handling of nulls. For example, Stream API allows for efficient data processing: `list.stream().filter(x -> x > 10).collect(Collectors.toList());`.
 **Conclusion:** Java 8+ features improve code readability, maintainability, and performance.
 
-### Question: Explain the difference between == and equals() method in Java.
+### Question 2: Explain the difference between == and equals() method in Java.
 **Answer:** `==` compares object references, checking if two references point to the same object. `equals()` compares the actual content or state of objects. For example, two String objects with the same value return true with `equals()` but false with `==` if they are different objects.
 **Conclusion:** Use `equals()` for logical equality, `==` for reference equality.
 
-### Question: How do lambda expressions work in Java 8, and when would you use them?
+### Question 3: How do lambda expressions work in Java 8, and when would you use them?
 **Answer:** Lambda expressions provide a concise way to implement functional interfaces. Syntax: `(parameters) -> expression`. They are used for passing behavior, especially in collections and stream operations. Example: `list.forEach(item -> System.out.println(item));`
 **Conclusion:** Use lambdas to simplify code and enable functional programming.
 
-### Question: What is the Stream API, and how does it improve code readability?
+### Question 4: What is the Stream API, and how does it improve code readability?
 **Answer:** The Stream API processes sequences of elements in a functional style, supporting operations like filter, map, and reduce. It enables concise and readable data manipulation. Example: `list.stream().map(String::toUpperCase).collect(Collectors.toList());`
 **Conclusion:** Stream API leads to more expressive and maintainable code.
 
-### Question: Explain the concept of Optional in Java 8 and its benefits.
+### Question 5: Explain the concept of Optional in Java 8 and its benefits.
 **Answer:** `Optional` is a container that may or may not hold a non-null value, helping to avoid null pointer exceptions. Example: `Optional.ofNullable(value).ifPresent(System.out::println);`
 **Conclusion:** Use Optional to write safer, more robust code.
 
-### Question: What are functional interfaces, and can you name a few built-in ones?
+### Question 6: What are functional interfaces, and can you name a few built-in ones?
 **Answer:** A functional interface has one abstract method and can be implemented with a lambda. Examples: `Runnable`, `Callable`, `Comparator`, `Function`, `Predicate`, `Consumer`.
 **Conclusion:** Functional interfaces enable functional programming in Java.
 
-### Question: How does garbage collection work in Java, and what are the different types?
+### Question 7: How does garbage collection work in Java, and what are the different types?
 **Answer:** Garbage collection automatically frees memory by removing unreachable objects. JVM collectors include Serial, Parallel, CMS, and G1, each with different performance characteristics.
 **Conclusion:** Understanding GC helps optimize application performance.
 
-### Question: Explain the difference between HashMap and ConcurrentHashMap.
+### Question 8: Explain the difference between HashMap and ConcurrentHashMap.
 **Answer:** `HashMap` is not thread-safe; `ConcurrentHashMap` is thread-safe and allows concurrent access without locking the entire map.
 **Conclusion:** Use `ConcurrentHashMap` for thread-safe operations.
 
-### Question: What is the difference between synchronized and volatile keywords?
+### Question 9: What is the difference between synchronized and volatile keywords?
 **Answer:** `synchronized` ensures mutual exclusion and visibility for critical sections; `volatile` only guarantees visibility of changes to variables across threads, not atomicity.
 **Conclusion:** Use `synchronized` for atomic operations, `volatile` for visibility.
 
-### Question: How do you handle exceptions in Java, and what's the difference between checked and unchecked exceptions?
+### Question 10: How do you handle exceptions in Java, and what's the difference between checked and unchecked exceptions?
 **Answer:** Exceptions are handled with try-catch blocks. Checked exceptions must be declared or handled; unchecked exceptions (RuntimeException) do not. Example: `IOException` (checked), `NullPointerException` (unchecked).
 **Conclusion:** Handle checked exceptions explicitly; unchecked exceptions indicate programming errors.
 
