@@ -23,7 +23,16 @@
 **Conclusion:** Use Optional to write safer, more robust code.
 
 ### Question 6: What are functional interfaces, and can you name a few built-in ones?
-**Answer:** A functional interface has one abstract method and can be implemented with a lambda. Examples: `Runnable`, `Callable`, `Comparator`, `Function`, `Predicate`, `Consumer`.
+**Answer:** A functional interface has one abstract method and can be implemented with a lambda. Examples:
+Function<T, R> – Takes T and returns R
+
+Predicate<T> – Returns boolean
+
+Consumer<T> – Performs an action
+
+Supplier<T> – Provides a value
+
+Runnable – Runs code without parameters or return
 **Conclusion:** Functional interfaces enable functional programming in Java.
 
 ### Question 7: How does garbage collection work in Java, and what are the different types?
