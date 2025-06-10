@@ -58,9 +58,7 @@
 
 ### Question 9: What is the difference between synchronized and volatile keywords?
 **Answer:** 
-# Java Synchronized vs Volatile - Complete Guide
-
-## 🔐 Synchronized
+***Synchronized***
 
 **What is synchronized?**
 - Makes a block or method mutually exclusive — only one thread at a time can execute it
@@ -83,21 +81,21 @@ void updateData() {
 }
 ```
 
-### Use When:
+***Use When:***
 - You need to execute compound operations (read-modify-write) safely in multi-threaded code
 - Examples: updating counters, modifying shared collections, complex state changes
 - Multiple threads need to modify the same resource
 
 ---
 
-## ⚡ Volatile
+***Volatile***
 
 **What is volatile?**
 - Used for **variables only** (not methods or blocks)
 - Ensures changes made by one thread are immediately **visible** to other threads
 - Does **NOT** ensure atomicity for compound operations
 
-### Example:
+***Example***
 ```java
 private volatile boolean running = true;
 
@@ -112,14 +110,14 @@ public void run() {
 }
 ```
 
-### Use When:
+***Use When:***
 - You have a **single writer** and **multiple readers**
 - Common use cases: flags like `isRunning`, `isStopped`, configuration values
 - Simple assignments where atomicity isn't required
 
 ---
 
-## Key Differences
+***Key Differences***
 
 | Aspect | Synchronized | Volatile |
 |--------|-------------|----------|
@@ -131,19 +129,19 @@ public void run() {
 
 ---
 
-## When to Use Which?
+***When to Use Which?***
 
-### Use `synchronized` when:
+***Use `synchronized` when:***
 - Multiple threads modify the same data
 - You need atomic compound operations
 - Thread safety is critical for complex state changes
 
-### Use `volatile` when:
+***Use `volatile` when:***
 - One thread writes, others only read
 - Simple flag variables or configuration values
 - You need visibility without the overhead of synchronization
 
-### Example Comparison:
+***Example Comparison:***
 ```java
 // ❌ Wrong - volatile doesn't make increment atomic
 private volatile int counter = 0;
