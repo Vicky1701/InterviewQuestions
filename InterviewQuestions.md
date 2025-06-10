@@ -49,6 +49,7 @@
 ***What is a HashMap?***
 - Stores key-value pairs.
 - Not synchronized → Multiple threads modifying it can lead to data corruption.
+  
 ***What is a ConcurrentHashMap?***
 - A thread-safe version of HashMap.
 - Internally divides the map into segments or buckets, each with its own lock (in earlier versions).
