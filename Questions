@@ -1,0 +1,400 @@
+)
+📘 Chapter 1: Functional Programming Basics
+✅ Easy
+Print All Even Numbers from a List using filter
+
+Filter Names Starting with 'A' from a List of Strings
+
+Map List of Integers to Their Squares
+
+Count Strings with Length > 5 in a List
+
+Convert List of Strings to Uppercase
+
+Remove Null or Empty Strings
+
+Check if Any Number is Even using anyMatch
+
+Get Distinct Numbers using distinct()
+
+Sort List of Strings Alphabetically
+
+Create Comma-Separated String from List of Numbers
+
+🔶 Medium
+Group a List of Strings by First Character
+
+Find the Second Highest Number from a List
+
+Find Frequency of Each Element
+
+Reverse Each Word in a List of Strings
+
+Sort Custom Objects by Field (e.g., name or age)
+
+Remove Duplicates from a List using Streams
+
+Top 3 Maximum Elements from a List
+
+Partition Numbers into Even and Odd
+
+Check if a List contains Only Unique Elements
+
+Flatten List of Lists using flatMap
+
+🔴 Hard
+Group Custom Objects by Attribute (e.g., Students by Grade)
+
+Average Salary by Department (List of Employees)
+
+Find Longest String using reduce
+
+Word Occurrence Count from Paragraph
+
+First Non-Repeating Character using Streams
+
+Implement Custom Collector
+
+Full Pipeline: filter → map → distinct → sorted → collect
+
+Pagination using skip and limit
+
+📗 Chapter 2: Streams – reduce, sorted, collect, comparator
+✅ Easy
+Sum of Integers using reduce()
+
+Max/Min Value using reduce()
+
+Remove Duplicates using distinct()
+
+Sort Numbers Ascending using sorted()
+
+Sort Strings Descending using Comparator.reverseOrder()
+
+Collect Filtered Elements into a List
+
+Count Total Elements with .count()
+
+🔶 Medium
+Sort List of Custom Objects by Comparator
+
+Longest Word from List using reduce()
+
+Distinct + Sorted Pipeline
+
+Group Words by Length (groupingBy)
+
+Map of Name → Age from Person List
+
+Sort Squares of Distinct Numbers Descending
+
+Create Summary Report with joining, mapping
+
+🔴 Hard
+CSV String from List using reduce()
+
+Group + Reduce: Max Salary per Department
+
+Sort by Multiple Fields (e.g., dept, then salary)
+
+Summary Stats with summarizingInt
+
+Most Frequent Word using Collectors.groupingBy
+
+Palindromes Partition using partitioningBy
+
+Factorial using reduce()
+
+Use JShell to play with custom stream puzzles
+
+
+
+Java Functional Interfaces & Lambdas – Practice Problems
+✅ Easy Level (Interface Basics & Usage)
+Use Predicate<String> to check if a string starts with “A”
+
+Use Function<String, Integer> to return length of string
+
+Use Consumer<String> to print a string in uppercase
+
+Use Supplier<Double> to return a random number
+
+Use UnaryOperator<String> to reverse a string
+
+Use BinaryOperator<Integer> to find the sum of two numbers
+
+Chain two Functions to first convert to uppercase and then get length
+
+Use Predicate<Integer> to check if a number is even
+
+🔶 Medium Level (Behavior Parameterization & Compositions)
+Implement a method that takes a Predicate<Employee> to filter employees
+
+Pass a Consumer<Integer> to print a list of integers one-by-one
+
+Create a generic method that accepts Function<T, R> and applies it to a list
+
+Pass a BinaryOperator<String> to combine two strings with a space
+
+Use BiPredicate<String, Integer> to check if string length matches integer
+
+Use BiConsumer<String, Integer> to print key-value pairs (Map)
+
+Create a method that accepts a Supplier<List<String>> to simulate lazy initialization
+
+Use UnaryOperator<Integer> to calculate square of a number
+
+🔴 Hard Level (Chaining, Composition, Method References)
+Compose multiple Functions: trim → uppercase → length → isEven
+
+Use method references to simplify lambdas in a map + filter + collect pipeline
+
+Pass BiFunction<List<Integer>, Predicate<Integer>, List<Integer>> to filter list
+
+Build your own filter() method using Predicate<T>
+
+Write a method that accepts a List<T> and two Predicate<T> and returns elements satisfying both
+
+Simulate a caching mechanism using Supplier<T> to load data only once
+
+Use Comparator.comparing() with method references to sort custom objects by multiple fields
+
+Create a dynamic comparator using Function<T, R> and pass it to sort()
+
+Java Functional Programming with Custom Classes & Streams – Problem Set
+📗 Chapter 4 – Custom Classes & Advanced Stream Ops
+✅ Easy
+Use allMatch to check if all courses have reviewScore > 90
+
+Use anyMatch to check if any course has reviewScore == 100
+
+Sort Courses by noOfStudents using Comparator
+
+Use sorted() with Comparator.comparing and method reference
+
+Use skip() to skip first 2 courses from a sorted list
+
+Use limit() to get only top 3 courses based on reviewScore
+
+Use count() to count total number of courses with students > 500
+
+🔶 Medium
+Find the course with the highest review score using max()
+
+Find any course with students > 1000 using findAny()
+
+Use takeWhile() to get courses with score >= 95 from a sorted list
+
+Use dropWhile() to skip courses with score >= 95 from a sorted list
+
+Use average() to get average number of students per course
+
+Group courses by category using Collectors.groupingBy()
+
+Get the count of courses per category using groupingBy + counting()
+
+🔴 Hard
+Group courses by reviewScore range (e.g., 90-95, 95-100) using custom classifier
+
+Within each category, find the course with the max number of students
+
+Create a map of category → list of course names sorted by noOfStudents
+
+Use partitioningBy to divide courses into high-rated and low-rated
+
+Create a reusable method that filters & sorts courses based on passed Predicate and Comparator
+
+📘 Chapter 5 – Stream Creation & BigInteger
+✅ Easy
+Create a Stream of 1 to 10 using Stream.iterate
+
+Create Stream of Squares of First 10 Natural Numbers
+
+Convert an Array of Strings into a Stream and print each element
+
+Use Stream.of() to create a stream of fixed courses and print names
+
+🔶 Medium
+Use BigInteger to calculate factorial of a number using reduce()
+
+Find sum of first 50 even numbers using Stream & reduce
+
+Create a Stream of random numbers using Stream.generate and limit it to 10
+
+Create a stream pipeline to filter, sort, map and collect
+
+🔴 Hard
+Find the nth Fibonacci number using Stream and BigInteger
+
+Use BigInteger reduce to compute power (e.g., 2^1000)
+
+Use IntStream.rangeClosed() to find all prime numbers up to 100
+
+Use parallelStream() on large custom course list and measure time difference
+
+ Java Functional Programming – Chapters 6 & 7 Practice Problems
+📗 Chapter 6 – Advanced Functional Programming Concepts
+✅ Easy
+Join a List of Strings with a Comma using Collectors.joining()
+
+Flatten a List of List<Integer> using flatMap
+
+Use flatMap to split sentences into words and collect all words
+
+Observe lazy behavior of Streams with print statements in map() and filter()
+
+Use parallelStream() to calculate sum of large range of integers
+
+🔶 Medium
+Create a Higher-Order Function that returns a Predicate<Integer> based on a threshold
+
+Create a Higher-Order Function that accepts a Function<String, String> and applies it to a list
+
+Compare performance of sequential vs parallel streams for filtering even numbers from a large list
+
+Use flatMap to build a word frequency map from a paragraph
+
+Chain joining with map: Convert list of students to uppercase names and join with ;
+
+🔴 Hard
+Build a custom flatMap-like method to flatten nested lists without using Streams
+
+Implement higher-order function to dynamically create comparators based on input
+
+Combine parallelStream with complex object filtering, mapping, and sorting
+
+Benchmark map → filter → reduce chain in both sequential and parallel modes
+
+Create a reactive-style pipeline using lazy evaluation & debugging with logs
+
+📘 Chapter 7 – Real-World Functional Java
+✅ Easy
+Use List.replaceAll() to convert all strings in a list to lowercase
+
+Use List.removeIf() to remove empty or null strings
+
+Read all lines from a file using Files.lines() and print them
+
+Start a thread using lambda: new Thread(() -> System.out.println("Hello"))
+
+🔶 Medium
+Remove duplicate lines from a file using Stream.distinct()
+
+Use Files.lines() to count how many lines contain a given keyword
+
+Create a method that accepts a Runnable and executes it in a thread
+
+Replace all even numbers in a list with their squares using replaceAll()
+
+Chain file reading, filtering, mapping and writing using Streams
+
+🔴 Hard
+Build a utility method to process and summarize log files using Streams
+
+Create a multi-threaded pipeline using Executors and Runnable lambdas
+
+Process a directory of text files using Files.walk() and Streams
+
+Build a functional error-logging system that groups log messages by severity using groupingBy()
+
+Pass different lambdas to simulate behavior-driven execution (e.g., logging, formatting, validating)
+
+
+---------------------------------------------------------------------------------------------------------------------------
+Lists, Sets, Maps
+
+Iteration
+
+Sorting
+
+Hashing
+
+Priority Queues
+
+Custom Comparators
+
+Advanced Scenarios (LRU, Thread Safety, etc.)
+
+✅ Easy Level (Beginner - Warmup with Collections)
+Count frequency of characters in a string using HashMap
+
+Remove duplicates from a list using Set
+
+Find the first non-repeating character in a string
+
+Sort a list of integers in ascending and descending order
+
+Check if a list contains duplicates
+
+Find union and intersection of two arrays using Set
+
+Convert an array to a list and vice versa
+
+Find the maximum and minimum in a list
+
+Reverse a list without using Collections.reverse()
+
+Check if a Map contains a key or value
+
+🔶 Medium Level (Intermediate - Interview Standard)
+Sort a map by values
+
+Group anagrams using HashMap
+
+Top K frequent elements using HashMap and PriorityQueue
+
+Find the first repeated and non-repeated word in a sentence
+
+Implement a custom sorting using Comparator (e.g., sort strings by length)
+
+Find the character with the highest frequency
+
+Check if two strings are anagrams using Map
+
+Remove elements from a list while iterating (avoid ConcurrentModificationException)
+
+Count occurrences of each word in a sentence
+
+Sort a list of objects (e.g., Employee by salary and name)
+
+🔴 Hard Level (Advanced - System Design/Deep Understanding)
+Implement an LRU Cache using LinkedHashMap
+
+Find the top K frequent words using PriorityQueue and HashMap
+
+Detect cycle in a directed graph using Map and DFS
+
+Find all pairs with a given sum in an array using Map
+
+Design a custom data structure for constant time insert, delete, and getRandom
+
+Implement a multiset (bag) using Map
+
+Detect and count duplicate subtrees in a binary tree using Map
+
+Merge K sorted linked lists using PriorityQueue
+
+Find the longest substring without repeating characters using Set
+
+Implement thread-safe caching using ConcurrentHashMap
+
+🧠 Bonus / Tricky Problems
+Flatten a nested list using a stack
+
+Serialize and deserialize a binary tree using Map
+
+Find the longest common prefix in a list of strings
+
+Implement a Least Frequently Used (LFU) Cache
+
+Design a rate limiter using Queue and Map
+
+Rearrange characters in a string such that no two adjacent characters are the same (using Heap/Map)
+
+Implement a dependency resolver using Map and Topological Sort
+
+Design a leaderboard using TreeMap and HashMap
+
+Frequency sort an array
+
+Find duplicate numbers in an array without using extra space
