@@ -1,0 +1,265 @@
+## 1. Core Java & Java 8+ 
+
+- What are the main features of Java 8+ that you find most beneficial for development?
+- Explain the difference between == and equals() method in Java.
+- How do lambda expressions work in Java 8, and when would you use them?
+- What is the Stream API, and how does it improve code readability?
+- Explain the concept of Optional in Java 8 and its benefits.
+- What are functional interfaces, and can you name a few built-in ones?
+- How does garbage collection work in Java, and what are the different types?
+- Explain the difference between HashMap and ConcurrentHashMap.
+- What is the difference between synchronized and volatile keywords?
+- How do you handle exceptions in Java, and what's the difference between checked and unchecked exceptions?
+- Explain the concept of method references in Java 8.
+- What are the different types of memory areas in JVM?
+- How does the default keyword work in interfaces (Java 8)?
+- Explain the difference between Comparable and Comparator.
+- What is the difference between String, StringBuilder, and StringBuffer?
+- How do you implement multithreading in Java?
+- Explain the concept of immutability in Java with examples.
+- What are the new date-time APIs introduced in Java 8?
+- How does method overloading and overriding work in Java?
+- Explain the concept of generics in Java.
+- What is the difference between abstract class and interface?
+- How do you handle memory leaks in Java applications?
+- Explain the concept of reflection in Java.
+- What are the different types of collections in Java?
+- How does the forEach method work with collections?
+- Explain the concept of thread safety in Java.
+- What is the difference between final, finally, and finalize?
+- How do you implement custom annotations in Java?
+- Explain the concept of serialization and deserialization.
+- What are the performance improvements in Java 11 and later versions?
+- Explain the difference between ArrayList and LinkedList. When would you use each?
+- What are design patterns? Explain Singleton, Factory, and Observer patterns with examples.
+- How does HashMap work internally? What happens during collision?
+- Explain Java Memory Model and the concept of volatile keyword.
+- How do you implement equals() and hashCode() methods? What is their contract?
+- What is the difference between fail-fast and fail-safe iterators?
+- Explain JVM architecture and class loading mechanism.
+- What are the differences between JDK, JRE, and JVM?
+- How do you optimize Java application performance?
+- What is the difference between composition and inheritance?
+- What are the different types of references in Java?
+- How do you implement producer-consumer pattern in Java?
+- What is the difference between static and non-static methods?
+- What are nested classes in Java? When would you use them?
+
+## 2. Spring Boot & Microservices (Combined, 40 Questions)
+
+- What is Spring Boot, and how does it differ from the traditional Spring Framework?
+- Explain the concept of auto-configuration in Spring Boot.
+- What are Spring Boot starters, and how do they simplify development?
+- How do you create a RESTful web service using Spring Boot?
+- Explain the different types of dependency injection in Spring.
+- What is the purpose of @SpringBootApplication annotation?
+- How do you handle configuration properties in Spring Boot?
+- Explain the concept of Spring Boot Actuator and its benefits.
+- What are the different ways to run a Spring Boot application?
+- How do you implement exception handling in Spring Boot?
+- Explain the difference between @Component, @Service, @Repository, and @Controller.
+- How do you implement validation in Spring Boot applications?
+- What is Spring Data JPA, and how does it simplify database operations?
+- How do you implement caching in Spring Boot?
+- Explain the concept of profiles in Spring Boot.
+- How do you secure a Spring Boot application?
+- What is the difference between @RequestParam and @PathVariable?
+- How do you implement file upload/download in Spring Boot?
+- Explain the concept of Spring Boot DevTools.
+- How do you implement logging in Spring Boot applications?
+- What are interceptors in Spring Boot, and how do you implement them?
+- How do you handle CORS in Spring Boot applications?
+- Explain the concept of Spring Boot Test and different testing annotations.
+- How do you implement scheduled tasks in Spring Boot?
+- What is the difference between @Autowired and @Inject?
+- How do you implement custom health checks in Spring Boot Actuator?
+- Explain the concept of Spring Boot banners and customization.
+- How do you implement internationalization (i18n) in Spring Boot?
+- What are the best practices for structuring a Spring Boot project?
+- How do you monitor and manage Spring Boot applications in production?
+- Explain the concept of microservices architecture.
+- How do you implement service discovery in microservices?
+- What is an API Gateway, and why is it important in microservices?
+- How do you handle distributed transactions in microservices?
+- What is Spring Cloud and its key components?
+- How do you implement circuit breaker pattern in Spring Boot?
+- How do you implement security in Spring Boot applications?
+- What are different ways to test Spring Boot applications?
+- How do you handle logging in Spring Boot applications?
+- How do you handle asynchronous processing in Spring Boot?
+- What are different ways to communicate between microservices?
+- How do you implement health checks in microservices?
+- What is Spring WebFlux and when would you use it?
+- How do you implement database migrations in Spring Boot?
+- What is the role of @Transactional annotation in Spring?
+- How do you implement rate limiting in Spring Boot applications?
+- What are Spring Boot configuration properties validation?
+- How do you implement event-driven architecture using Spring Boot?
+
+## 3. Microservices Architecture (30 Questions)
+
+- What are microservices, and how do they differ from monolithic architecture?
+- What are the main advantages and challenges of microservices architecture?
+- How do you handle communication between microservices?
+- Explain the concept of service discovery in microservices.
+- What is an API Gateway, and why is it important in microservices?
+- How do you implement distributed tracing in microservices?
+- Explain the concept of circuit breaker pattern and its implementation.
+- How do you handle data consistency in microservices architecture?
+- What is the saga pattern, and when would you use it?
+- How do you implement authentication and authorization in microservices?
+- Explain the concept of bulkhead pattern in microservices.
+- How do you handle configuration management in microservices?
+- What are the different deployment strategies for microservices?
+- How do you monitor and log microservices effectively?
+- Explain the concept of eventual consistency in microservices.
+- How do you handle versioning in microservices APIs?
+- What is the difference between orchestration and choreography in microservices?
+- How do you implement health checks in microservices?
+- Explain the concept of bounded context in domain-driven design.
+- How do you handle cross-cutting concerns in microservices?
+- What are the different patterns for microservices decomposition?
+- How do you implement caching strategies in microservices?
+- Explain the concept of event sourcing in microservices.
+- How do you handle testing in microservices architecture?
+- What is the strangler fig pattern, and when would you use it?
+- How do you implement rate limiting in microservices?
+- Explain the concept of polyglot persistence in microservices.
+- How do you handle backward compatibility in microservices?
+- What are the security considerations for microservices architecture?
+- How do you measure the performance of microservices?
+
+## 4. Frontend Development (React/Angular) (30 Questions)
+
+- What is React, and what are its key features?
+- Explain the concept of Virtual DOM and its benefits.
+- What is JSX, and how does it differ from regular JavaScript/HTML?
+- Explain the difference between functional and class components.
+- What are React Hooks, and why were they introduced?
+- How does the useState hook work, and when would you use it?
+- Explain the useEffect hook and its different use cases.
+- What is the component lifecycle in React class components?
+- How do you handle forms in React applications?
+- Explain the concept of props and state in React.
+- What is prop drilling, and how can you avoid it?
+- How does React Context API work, and when would you use it?
+- Explain the concept of higher-order components (HOCs).
+- What are render props, and how do they work?
+- How do you implement routing in React applications?
+- Explain the concept of code splitting in React.
+- How do you optimize React application performance?
+- What is React.memo, and when should you use it?
+- How do you handle error boundaries in React?
+- Explain the concept of controlled vs uncontrolled components.
+- How do you implement lazy loading in React?
+- What are custom hooks, and how do you create them?
+- How do you handle side effects in React applications?
+- Explain the concept of React reconciliation.
+- How do you implement authentication in React applications?
+- What is the difference between useMemo and useCallback?
+- How do you test React components?
+- Explain the concept of React portals.
+- How do you implement internationalization in React?
+- What are the best practices for React application architecture?
+
+
+## 5. RESTful APIs & HTTP Protocols (30 Questions)
+
+- What is REST, and what are its core principles?
+- Explain the different HTTP methods and their purposes.
+- What are HTTP status codes, and what do different categories represent?
+- How do you design RESTful URLs following best practices?
+- What is the difference between PUT and PATCH methods?
+- Explain the concept of idempotency in REST APIs.
+- How do you handle versioning in REST APIs?
+- What is HATEOAS, and how does it relate to REST?
+- How do you implement authentication in REST APIs?
+- Explain the difference between authentication and authorization.
+- What are the different ways to secure REST APIs?
+- How do you handle CORS in REST API development?
+- What is content negotiation in REST APIs?
+- How do you implement pagination in REST APIs?
+- Explain the concept of REST API rate limiting.
+- What are the best practices for REST API error handling?
+- How do you document REST APIs effectively?
+- What is the difference between REST and SOAP?
+- How do you handle file uploads through REST APIs?
+- Explain the concept of REST API caching strategies.
+- What are webhooks, and how do they differ from REST APIs?
+- How do you implement filtering and sorting in REST APIs?
+- What is the Richardson Maturity Model for REST?
+- How do you handle bulk operations in REST APIs?
+- Explain the concept of REST API testing strategies.
+- What are the performance considerations for REST APIs?
+- How do you implement real-time features with REST APIs?
+- What is the difference between synchronous and asynchronous APIs?
+- How do you handle API deprecation gracefully?
+- What are the monitoring and logging best practices for REST APIs?
+
+## 6. Database & General Full Stack (30 Questions)
+
+- What is the difference between SQL and NoSQL databases? When would you use each?
+- Explain database normalization and its different forms.
+- What are database indexes and how do they improve query performance?
+- How do you handle database transactions and ensure ACID properties?
+- What is database connection pooling and why is it important?
+What are the different types of database relationships?
+Explain the concept of database normalization and its normal forms.
+What is the difference between clustered and non-clustered indexes?
+How do you optimize SQL query performance?
+Explain the ACID properties of database transactions.
+What is the difference between INNER JOIN, LEFT JOIN, and RIGHT JOIN?
+How do you handle database migrations in applications?
+What are stored procedures, and when would you use them?
+Explain the concept of database connection pooling.
+What is the difference between DELETE, TRUNCATE, and DROP?
+How do you implement database backup and recovery strategies?
+What are database constraints, and what types are available?
+Explain the concept of database sharding.
+How do you handle concurrent transactions and locking?
+What is the difference between SQL and NoSQL databases?
+How do you implement database security best practices?
+What are database views, and when would you use them?
+Explain the concept of database triggers.
+How do you handle large dataset queries efficiently?
+What is the difference between UNION and UNION ALL?
+How do you implement full-text search in databases?
+What are aggregate functions, and how do you use them?
+Explain the concept of database replication.
+How do you handle database schema versioning?
+What is the difference between EXISTS and IN operators?
+How do you implement audit trails in databases?
+Explain the concept of database partitioning.
+What are common SQL injection prevention techniques?
+How do you monitor database performance?
+
+
+Genaral-
+
+What are the considerations for database scaling strategies?
+- How do you design RESTful APIs? What are the best practices?
+- How do you handle API versioning in a production environment?
+- What are the different HTTP status codes and their meanings?
+- How do you implement caching strategies in full-stack applications?
+- What is CORS and how do you handle it in web applications?
+- How do you monitor and debug full-stack applications in production?
+- What are design patterns commonly used in full-stack development?
+- How do you ensure data security in full-stack applications?
+- What is the role of Docker in full-stack development?
+- How do you implement CI/CD pipelines for full-stack applications?
+- What are the principles of scalable application architecture?
+- How do you handle file uploads and storage in web applications?
+- What is GraphQL and how does it differ from REST?
+- How do you implement search functionality in web applications?
+- What are WebSockets and when would you use them?
+- How do you handle data validation in full-stack applications?
+- What is database migration and how do you manage schema changes?
+- How do you implement pagination in REST APIs and frontend applications?
+- What are environment variables and how do you manage configuration?
+- How do you handle third-party API integration in full-stack applications?
+- What is the role of load balancers in application architecture?
+- How do you optimize database queries for better performance?
+- What are the security considerations for full-stack web applications?
+- How do you approach system design for a full-stack application?
+- What are aggregate functions, and how do you use them?
+- Explain the concept of database replication.
