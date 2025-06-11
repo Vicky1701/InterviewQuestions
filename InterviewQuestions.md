@@ -392,7 +392,7 @@ public void requestStop() {
 - New language features: var for lambda parameters, local-variable syntax for lambda, HTTP Client API, etc.
 
 ### Question 31: Explain the difference between ArrayList and LinkedList. When would you use each?
-
+  In Java, both ArrayList and LinkedList implement the List interface
 - **ArrayList:**
   - Backed by a dynamic array.
   - Fast random access (O(1)), slow insert/delete in the middle (O(n)).
@@ -401,39 +401,114 @@ public void requestStop() {
   - Doubly-linked list.
   - Fast insert/delete at ends (O(1)), slow random access (O(n)).
   - Use when you need frequent insertions/deletions, especially at the ends.
+ 
+  - I would prefer:
+  - ArrayList when I need frequent access to elements by index or I’m mostly performing read operations.
+  - LinkedList when I have to perform frequent insertions/deletions, especially at the start or middle, or if I’m implementing a Queue or     Deque.
 
 ### Question 32: What are design patterns? Explain Singleton, Factory, and Observer patterns with examples
 
-- **Design patterns:** Reusable solutions to common software design problems.
-- **Singleton:** Ensures only one instance of a class exists.
-  ```java
-  public class Singleton {
-      private static final Singleton instance = new Singleton();
-      private Singleton() {}
-      public static Singleton getInstance() { return instance; }
-  }
-  ```
-- **Factory:** Creates objects without exposing instantiation logic.
-  ```java
-  public interface Shape { }
-  public class Circle implements Shape { }
-  public class ShapeFactory {
-      public Shape getShape(String type) {
-          if (type.equals("circle")) return new Circle();
-          // ...
-      }
-  }
-  ```
-- **Observer:** Notifies multiple objects about state changes.
-  ```java
-  public interface Observer { void update(); }
-  public class Subject {
-      private List<Observer> observers = new ArrayList<>();
-      public void addObserver(Observer o) { observers.add(o); }
-      public void notifyAllObservers() { observers.forEach(Observer::update); }
-  }
-  ```
+---
 
+####  What are Design Patterns?
+
+Design patterns are proven, reusable solutions to common problems in software design.  
+They represent best practices refined through experience.
+
+**Categories:**
+- **Creational** (e.g., Singleton, Factory)
+- **Structural** (e.g., Adapter, Decorator)
+- **Behavioral** (e.g., Observer, Strategy)
+
+---
+
+###  1. Singleton Pattern
+
+- **Category:** Creational  
+- **Purpose:** Ensures a class has only one instance and provides a global access point to it.
+
+**Use Cases:** Logging, configuration, thread pools, DB connections.
+
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {} // private constructor
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+```
+
+---
+
+###  2. Factory Pattern
+
+- **Category:** Creational  
+- **Purpose:** Defines an interface for creating objects, but lets subclasses or logic decide which class to instantiate.
+
+**Use Cases:** When object creation logic is complex or varies based on input.
+
+```java
+interface Shape {
+    void draw();
+}
+
+class Circle implements Shape {
+    public void draw() { System.out.println("Circle"); }
+}
+
+class Square implements Shape {
+    public void draw() { System.out.println("Square"); }
+}
+
+class ShapeFactory {
+    public Shape getShape(String type) {
+        if (type.equals("CIRCLE")) return new Circle();
+        if (type.equals("SQUARE")) return new Square();
+        return null;
+    }
+}
+```
+
+---
+
+###  3. Observer Pattern
+
+- **Category:** Behavioral  
+- **Purpose:** Defines a one-to-many dependency between objects so that when one changes state, all dependents are notified.
+
+**Use Cases:** Event handling systems, notification systems, UI frameworks.
+
+```java
+interface Observer {
+    void update(String message);
+}
+
+class User implements Observer {
+    private String name;
+    User(String name) { this.name = name; }
+
+    public void update(String message) {
+        System.out.println(name + " received: " + message);
+    }
+}
+
+class NotificationService {
+    private List<Observer> observers = new ArrayList<>();
+
+    public void addObserver(Observer o) { observers.add(o); }
+    public void notifyAllObservers(String msg) {
+        for (Observer o : observers) {
+            o.update(msg);
+        }
+    }
+}
+```
 ### Question 33: How does HashMap work internally? What happens during collision?
 
 - HashMap uses an array of buckets; each key's hashCode determines its bucket.
