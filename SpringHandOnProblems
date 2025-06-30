@@ -1,0 +1,424 @@
+# **Spring Boot Live Coding Questions (30-45 minutes)**
+## **Easy Level - 0-2 Years Experience**
+
+---
+
+## **🚀 Quick Setup & Configuration (5-10 minutes)**
+
+### **Q1: Project Setup**
+```
+Create a new Spring Boot project using Spring Initializr with:
+- Spring Web, Spring Data JPA, H2 Database
+- Set server port to 8081
+- Configure H2 console access
+```
+
+### **Q2: Application Properties**
+```
+Configure application.properties for:
+- H2 database with file storage
+- Enable H2 console
+- Set logging level to DEBUG for root package
+```
+
+---
+
+## **📝 Basic Entity & Repository (10-15 minutes)**
+
+### **Q3: Simple Entity Creation**
+```java
+Create a Student entity with:
+- id (auto-generated)
+- name (required, max 50 chars)
+- email (required, unique)
+- age (minimum 18)
+- Add proper JPA annotations
+```
+
+### **Q4: Repository Interface**
+```java
+Create StudentRepository with:
+- Basic CRUD operations
+- Find students by name containing a keyword
+- Find students older than specified age
+- Count students by age greater than 20
+```
+
+---
+
+## **🌐 REST Controller Development (15-20 minutes)**
+
+### **Q5: Basic CRUD Controller**
+```java
+Create StudentController with:
+- GET /students - get all students
+- GET /students/{id} - get student by id
+- POST /students - create new student
+- PUT /students/{id} - update student
+- DELETE /students/{id} - delete student
+```
+
+### **Q6: Search Endpoints**
+```java
+Add to StudentController:
+- GET /students/search?name=xyz
+- GET /students/age/{minAge}
+- GET /students/count
+```
+
+### **Q7: Request/Response Handling**
+```java
+Create StudentDto class and:
+- Use @RequestBody for POST/PUT
+- Return appropriate HTTP status codes
+- Handle path variables and request parameters
+```
+
+---
+
+## **✅ Validation & Error Handling (10-15 minutes)**
+
+### **Q8: Input Validation**
+```java
+Add validation to Student entity:
+- Name cannot be blank
+- Email must be valid format
+- Age must be between 18-100
+- Use appropriate validation annotations
+```
+
+### **Q9: Exception Handling**
+```java
+Create GlobalExceptionHandler:
+- Handle validation errors
+- Handle EntityNotFoundException
+- Return proper error response format
+```
+
+### **Q10: Custom Validation**
+```java
+Create custom validator for email domain:
+- Only allow emails ending with @company.com
+- Apply to Student entity
+```
+
+---
+
+## **💾 Data Operations (10-15 minutes)**
+
+### **Q11: Service Layer**
+```java
+Create StudentService with:
+- All CRUD operations
+- Business logic for age validation
+- Method to find students by age range
+```
+
+### **Q12: Data Initialization**
+```java
+Create data.sql or use @PostConstruct to:
+- Insert 5 sample students on startup
+- Show different approaches to data seeding
+```
+
+### **Q13: Custom Queries**
+```java
+Add to StudentRepository:
+- @Query to find students by email domain
+- Native query to get average age
+- Method to find top 3 youngest students
+```
+
+---
+
+## **🧪 Testing Basics (5-10 minutes)**
+
+### **Q14: Controller Testing**
+```java
+Write basic test for StudentController:
+- Test GET /students endpoint
+- Mock the service layer
+- Verify JSON response
+```
+
+### **Q15: Repository Testing**
+```java
+Write test for custom repository method:
+- Use @DataJpaTest
+- Test findByNameContaining method
+```
+
+---
+
+## **🔧 Configuration & Profiles (5-10 minutes)**
+
+### **Q16: Multiple Profiles**
+```yaml
+Create application-dev.yml and application-prod.yml:
+- Different database configurations
+- Different logging levels
+- Show how to activate profiles
+```
+
+### **Q17: Configuration Properties**
+```java
+Create AppConfig class:
+- Read custom properties from application.yml
+- Use @ConfigurationProperties
+- Inject and use in controller
+```
+
+---
+
+## **📊 Advanced CRUD Operations (10-15 minutes)**
+
+### **Q18: Pagination & Sorting**
+```java
+Modify StudentController:
+- Add pagination to GET /students
+- Add sorting capability
+- Return Page<Student> response
+```
+
+### **Q19: Bulk Operations**
+```java
+Add endpoints for:
+- POST /students/bulk - create multiple students
+- DELETE /students/bulk - delete by age range
+- PUT /students/bulk - update multiple students
+```
+
+### **Q20: Relationships**
+```java
+Create Course entity and:
+- Many-to-Many relationship with Student
+- Endpoints to assign/remove courses
+- Get students by course name
+```
+
+---
+
+## **🔐 Security & Middleware (10-15 minutes)**
+
+### **Q21: Basic Authentication**
+```java
+Add simple authentication:
+- Create login endpoint
+- Basic JWT token generation
+- Secure specific endpoints
+```
+
+### **Q22: Request Logging**
+```java
+Create interceptor/filter to:
+- Log all incoming requests
+- Log request method, URL, timestamp
+- Log response time
+```
+
+### **Q23: CORS Configuration**
+```java
+Configure CORS:
+- Allow specific origins
+- Allow specific HTTP methods
+- Configure in WebMvcConfigurer
+```
+
+---
+
+## **📁 File Operations (10-15 minutes)**
+
+### **Q24: File Upload**
+```java
+Create endpoint for:
+- Upload student profile picture
+- Store file metadata in database
+- Return file information
+```
+
+### **Q25: CSV Import/Export**
+```java
+Add endpoints to:
+- Import students from CSV file
+- Export students to CSV format
+- Handle file parsing errors
+```
+
+---
+
+## **⚡ Performance & Optimization (5-10 minutes)**
+
+### **Q26: Caching**
+```java
+Add caching to:
+- Student retrieval methods
+- Use @Cacheable annotation
+- Configure cache properties
+```
+
+### **Q27: Database Optimization**
+```java
+Optimize queries:
+- Add database indexes
+- Use @Query for complex operations
+- Implement lazy loading
+```
+
+---
+
+## **🔍 Search & Filtering (10-15 minutes)**
+
+### **Q28: Advanced Search**
+```java
+Create search endpoint:
+- Search by multiple criteria (name, age, email)
+- Use Specification or Criteria API
+- Support optional parameters
+```
+
+### **Q29: Full-Text Search**
+```java
+Implement search functionality:
+- Search students by name or email
+- Case-insensitive search
+- Partial matching support
+```
+
+---
+
+## **📈 Monitoring & Health (5-10 minutes)**
+
+### **Q30: Health Check**
+```java
+Create custom health indicators:
+- Database connectivity check
+- Custom application health status
+- Return health metrics
+```
+
+### **Q31: Metrics Endpoint**
+```java
+Add endpoint to return:
+- Total student count
+- Average age
+- Most popular email domain
+```
+
+---
+
+## **🔄 Data Transfer & Integration (10-15 minutes)**
+
+### **Q32: DTO Mapping**
+```java
+Create StudentDTO and:
+- Map Entity to DTO
+- Handle nested objects
+- Use MapStruct or manual mapping
+```
+
+### **Q33: External API Integration**
+```java
+Integrate with external service:
+- Validate email using external API
+- Use RestTemplate or WebClient
+- Handle API failures gracefully
+```
+
+---
+
+## **⚙️ Advanced Configuration (5-10 minutes)**
+
+### **Q34: Custom Beans**
+```java
+Create configuration class:
+- Define custom beans
+- Use @Bean annotation
+- Show dependency injection
+```
+
+### **Q35: Event Handling**
+```java
+Implement application events:
+- Student creation event
+- Event listener for logging
+- Async event processing
+```
+
+---
+
+## **📝 Documentation & Standards (5-10 minutes)**
+
+### **Q36: API Documentation**
+```java
+Add Swagger/OpenAPI:
+- Document all endpoints
+- Add example requests/responses
+- Include validation rules
+```
+
+### **Q37: Code Standards**
+```java
+Show best practices:
+- Proper exception handling
+- Clean code principles
+- Consistent naming conventions
+```
+
+---
+
+## **🎯 Complete Mini-Projects (30-45 minutes each)**
+
+### **Q38: Todo Application**
+```
+Build complete Todo API:
+- User authentication
+- CRUD operations for todos
+- Mark as complete/incomplete
+- Priority levels and categories
+```
+
+### **Q39: Library Management**
+```
+Create library system:
+- Books and Authors entities
+- Borrowing system
+- Due date tracking
+- Fine calculation
+```
+
+### **Q40: Employee Management**
+```
+Build HR system:
+- Employee CRUD
+- Department management
+- Salary calculations
+- Leave management
+```
+
+---
+
+## **📋 Interview Tips for Each Question:**
+
+**Time Management:**
+- 5-10 minutes: Setup and basic configuration
+- 15-20 minutes: Core functionality implementation
+- 5-10 minutes: Testing and validation
+- 5 minutes: Explanation and Q&A
+
+**What Interviewers Look For:**
+- Clean, readable code
+- Proper Spring Boot annotations usage
+- Error handling approach
+- Understanding of REST principles
+- Ability to explain design decisions
+- Problem-solving approach when stuck
+
+**Common Mistakes to Avoid:**
+- Forgetting @RestController annotation
+- Not handling exceptions
+- Missing validation
+- Improper HTTP status codes
+- Not following naming conventions
+- Overcomplicating simple solutions
+
+These questions cover all essential Spring Boot concepts at an appropriate difficulty level for 0-2 years of experience!
