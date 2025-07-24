@@ -123,7 +123,3 @@
 
 ---
 
-
- Q4, Q5, Q6, Q7, Q8, Q10, Q11, Q12, Q19, Q28, Q29, Q30
-
-**Master these and you can handle 80% of JUnit interview questions!**
