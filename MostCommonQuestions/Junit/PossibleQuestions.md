@@ -123,46 +123,7 @@
 
 ---
 
-## 📋 PRIORITY STUDY ORDER
 
-### Week 1 (Essential - Focus Here First)
-- Q1-Q12 (Must-know questions)
-- Practice writing 3-4 basic test methods
-- Understand mocking concepts
-
-### Week 2 (If You Have More Time)
-- Q13-Q27 (Likely + Scenario questions)
-- Practice coding questions Q28-Q31
-- Learn about Spring Boot testing basics
-
-### Additional Time
-- Q32-Q45 (Tool-specific and advanced questions)
-
----
-
-## 🚀 INTERVIEW SURVIVAL TIPS
-
-### If You Don't Know the Exact Answer:
-1. **Explain the concept**: "I understand the principle behind this..."
-2. **Show willingness**: "I haven't implemented this specifically, but I would approach it by..."
-3. **Ask for clarification**: "Are you asking about unit testing or integration testing?"
-
-### Safe Answers to Have Ready:
-- "I'm familiar with JUnit concepts and eager to apply them hands-on"
-- "I understand testing principles and have been practicing writing basic tests"
-- "I know the importance of mocking for isolating dependencies"
-
-### Code Writing Strategy:
-- Start with AAA pattern structure
-- Use simple, clear variable names
-- Explain your approach as you write
-- It's okay to say "I'd need to check the exact syntax, but the approach would be..."
-
----
-
-## 🎯 MINIMUM VIABLE PREPARATION
-
-**If you have LIMITED time, focus ONLY on these 15 questions:**
-Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q10, Q11, Q12, Q19, Q28, Q29, Q30
+ Q4, Q5, Q6, Q7, Q8, Q10, Q11, Q12, Q19, Q28, Q29, Q30
 
 **Master these and you can handle 80% of JUnit interview questions!**
