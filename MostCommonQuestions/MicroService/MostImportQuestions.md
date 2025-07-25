@@ -51,44 +51,44 @@
 
 ## ⚡ QUICK-FIRE Questions (Know the Answers)
 
-**Q51: What is the typical port range for microservices?**
+**Q19: What is the typical port range for microservices?**
 *Answer: Usually 8080, 8081, 8082... or any available ports*
 
-**Q52: What is the difference between REST and gRPC?**
+**Q20: What is the difference between REST and gRPC?**
 *Answer: REST uses HTTP/JSON, gRPC uses HTTP/2 with Protocol Buffers*
 
-**Q53: What is idempotency in microservices?**
+**Q21: What is idempotency in microservices?**
 *Answer: Same operation can be performed multiple times with same result*
 
-**Q54: What is service mesh?**
+**Q22: What is service mesh?**
 *Answer: Infrastructure layer for service-to-service communication*
 
-**Q55: What is 12-factor app methodology?**
+**Q23: What is 12-factor app methodology?**
 *Answer: Best practices for building SaaS applications*
 
-**Q56: What is bulkhead pattern?**
+**Q24: What is bulkhead pattern?**
 *Answer: Isolating resources to prevent cascading failures*
 
-**Q57: What is distributed tracing?**
+**Q25: What is distributed tracing?**
 *Answer: Tracking requests across multiple services*
 
 ---
 
 ## 🎪 REAL-WORLD SCENARIOS (Important for Experience)
 
-**Q58: How would you migrate a monolithic application to microservices?**
+**Q26: How would you migrate a monolithic application to microservices?**
 
-**Q59: How do you handle service failures and ensure resilience?**
+**Q27: How do you handle service failures and ensure resilience?**
 
-**Q60: How would you implement authentication and authorization across services?**
+**Q28: How would you implement authentication and authorization across services?**
 
-**Q61: How do you handle cross-cutting concerns like logging and monitoring?**
+**Q29: How do you handle cross-cutting concerns like logging and monitoring?**
 
-**Q62: How would you design an e-commerce system using microservices?**
+**Q30: How would you design an your Project  using microservices?(Mobiltyx Reward Platform)**
 
-**Q63: How do you handle data synchronization between services?**
+**Q31: How do you handle data synchronization between services?**
 
-**Q64: How would you implement rate limiting in microservices?**
+**Q32: How would you implement rate limiting in microservices?**
 
-**Q65: How do you handle service dependencies and avoid cascading failures?**
+**Q33: How do you handle service dependencies and avoid cascading failures?**
 
