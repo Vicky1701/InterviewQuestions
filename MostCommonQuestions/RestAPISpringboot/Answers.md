@@ -514,7 +514,29 @@ public class UserController {
 
 **Q24: What is @ControllerAdvice and @ExceptionHandler?**
 
-**Answer:** @ControllerAdvice provides global exception handling for all controllers.
+**Answer:** @ControllerAdvice
+The @ControllerAdvice annotation defines a global exception handler that applies to all controllers in your application. It's a specialization of the @Component annotation.
+
+Key Features:
+Global exception handling across multiple controllers
+
+Can be combined with @ResponseBody (or use @RestControllerAdvice as a shortcut)
+
+Can be scoped to specific packages or controllers using attributes:
+
+@ExceptionHandler
+The @ExceptionHandler annotation marks a method as handling specific exceptions. It's used within @ControllerAdvice classes or individual controllers.
+
+Key Features:
+Handles exceptions thrown by controller methods
+
+Can return ResponseEntity for full control over the response
+
+Supports multiple exception types in one handler
+
+Method signature is flexible (can accept the exception, request, etc.)
+
+
 
 ```java
 @ControllerAdvice
