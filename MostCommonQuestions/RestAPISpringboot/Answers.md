@@ -229,7 +229,16 @@ public class UserController {
 
 **Q14: Explain @Valid annotation and how validation works.**
 
-**Answer:** @Valid triggers validation on request objects using Bean Validation annotations.
+**Answer:** The @Valid annotation is part of the Java Bean Validation API (JSR-380, also known as Jakarta Bean Validation) that allows you to declaratively validate Java objects.
+
+When this endpoint receives a request:
+
+Spring binds the request body to the User object
+
+The @Valid annotation triggers validation
+
+If validation fails, a MethodArgumentNotValidException is thrown (which typically results in a 400 Bad Request response)
+
 
 ```java
 public class User {
@@ -260,7 +269,22 @@ public ResponseEntity<String> handleValidation(
 
 **Q15: What is @CrossOrigin annotation? When do you use it?**
 
-**Answer:** @CrossOrigin enables Cross-Origin Resource Sharing (CORS) to allow requests from different domains.
+**Answer:**The @CrossOrigin annotation is a Spring Framework annotation that enables Cross-Origin Resource Sharing (CORS) for specific controllers or handler methods in a Spring application.
+
+What is CORS?
+CORS is a security mechanism that allows or restricts web pages from making requests to a different domain than the one that served the web page. Browsers enforce this "same-origin policy" by default for security reasons.
+
+When to Use @CrossOrigin
+You need @CrossOrigin when:
+
+Your frontend (running on http://localhost:3000) needs to call your backend API (running on http://localhost:8080)
+
+Your web application is hosted on a different domain than your API server
+
+You're developing a public API that needs to be consumed by clients from various domains
+
+You're integrating with third-party services that require cross-origin requests
+
 
 ```java
 @RestController
