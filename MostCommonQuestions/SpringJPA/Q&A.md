@@ -2,10 +2,10 @@
 
 ## Core Concepts
 
-### What is Spring Data JPA? How is it different from plain JPA?
+### 1 What is Spring Data JPA? How is it different from plain JPA?
 Spring Data JPA is a part of Spring Data framework that provides repository abstraction over JPA. It eliminates boilerplate code by providing pre-built repository interfaces and automatic query generation from method names, while plain JPA requires manual EntityManager handling.
 
-### Explain the repository hierarchy in Spring Data JPA.
+### 2 Explain the repository hierarchy in Spring Data JPA.
 - **Repository** (marker interface)
 - **CrudRepository** (basic CRUD operations)
 - **PagingAndSortingRepository** (adds pagination and sorting)
@@ -18,10 +18,10 @@ Spring Data JPA is a part of Spring Data framework that provides repository abst
 
 ## Repository Methods
 
-### How does query method generation work in Spring Data JPA?
+### 3 How does query method generation work in Spring Data JPA?
 Spring Data JPA generates queries automatically based on method names using keywords like findBy, countBy, deleteBy, etc. It parses method names and creates corresponding JPQL queries.
 
-### What are the naming conventions for query methods?
+### 4 What are the naming conventions for query methods?
 ```java
 // Find operations
 findByFirstName(String firstName)
@@ -39,7 +39,7 @@ countByFirstName(String firstName)
 deleteByFirstName(String firstName)
 ```
 
-### Explain query method keywords with examples.
+### 5 Explain query method keywords with examples.
 - **And/Or**: `findByFirstNameAndLastName`
 - **GreaterThan/LessThan**: `findByAgeGreaterThan`
 - **Between**: `findByAgeBetween`
@@ -67,11 +67,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
 }
 ```
 
-### What is the difference between JPQL and native queries in @Query?
+### 6 What is the difference between JPQL and native queries in @Query?
 - **JPQL**: Object-oriented queries using entity names and properties
 - **Native queries**: Raw SQL queries using table and column names, set nativeQuery = true
 
-### How do you implement custom repository methods?
+### 7 How do you implement custom repository methods?
 Create a custom interface and implementation:
 ```java
 // Custom interface
@@ -98,7 +98,7 @@ public interface UserRepository extends JpaRepository<User, Long>, UserRepositor
 
 ## Pagination and Sorting
 
-### How do you implement pagination in Spring Data JPA?
+### 8 How do you implement pagination in Spring Data JPA?
 ```java
 @Repository
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
@@ -112,7 +112,7 @@ public Page<User> getUsers(int page, int size) {
 }
 ```
 
-### How do you implement sorting?
+### 9 How do you implement sorting?
 ```java
 // Using Sort object
 Sort sort = Sort.by(Sort.Direction.ASC, "firstName");
@@ -123,13 +123,13 @@ Pageable pageable = PageRequest.of(0, 10, Sort.by("firstName"));
 Page<User> userPage = userRepository.findAll(pageable);
 ```
 
-### What is the difference between Page and Slice?
+### 10 What is the difference between Page and Slice?
 - **Page**: Contains total count of elements and total pages (requires additional count query)
 - **Slice**: Only knows if there's next slice available (more efficient, no count query)
 
 ## Modifying Queries
 
-### How do you perform update/delete operations using @Query?
+### 11 How do you perform update/delete operations using @Query?
 ```java
 @Modifying
 @Query("UPDATE User u SET u.firstName = :firstName WHERE u.id = :id")
@@ -140,12 +140,12 @@ int updateUserFirstName(@Param("id") Long id, @Param("firstName") String firstNa
 int deleteInactiveUsers(@Param("date") LocalDateTime date);
 ```
 
-### What is @Modifying annotation and when to use it?
+### 12 What is @Modifying annotation and when to use it?
 @Modifying is required for update/delete queries. It indicates that the query modifies the database. Should be used with @Transactional for proper transaction management.
 
 ## Projections
 
-### What are projections in Spring Data JPA?
+###  13 What are projections in Spring Data JPA?
 Projections allow you to retrieve only specific fields from entities instead of full objects.
 
 ### Types of projections:
@@ -169,7 +169,7 @@ List<UserSummary> findByDepartment(String department);
 List<UserDto> findDtoByDepartment(String department);
 ```
 
-### What is @Value annotation in projections?
+### 14 What is @Value annotation in projections?
 ```java
 public interface UserInfo {
     @Value("#{target.firstName + ' ' + target.lastName}")
@@ -181,7 +181,7 @@ public interface UserInfo {
 
 ## Advanced Features
 
-### What are Specifications in Spring Data JPA?
+### 15 What are Specifications in Spring Data JPA?
 Specifications provide a programmatic way to build dynamic queries using Criteria API:
 ```java
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
@@ -194,7 +194,7 @@ public static Specification<User> hasFirstName(String firstName) {
 }
 ```
 
-### How do you handle auditing in Spring Data JPA?
+###  16 How do you handle auditing in Spring Data JPA?
 ```java
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -219,7 +219,7 @@ public class JpaConfig {
 }
 ```
 
-### What is @EnableJpaRepositories annotation?
+### 17 What is @EnableJpaRepositories annotation?
 Enables Spring Data JPA repositories. Auto-configures repository beans and can specify base packages:
 ```java
 @EnableJpaRepositories(basePackages = "com.example.repository")
@@ -230,7 +230,7 @@ public class Application {
 
 ## Performance and Best Practices
 
-### How do you optimize Spring Data JPA performance?
+### 18 How do you optimize Spring Data JPA performance?
 - Use appropriate fetch strategies (LAZY vs EAGER)
 - Implement pagination for large datasets  
 - Use projections for selective field retrieval
@@ -238,7 +238,7 @@ public class Application {
 - Use batch operations for bulk updates
 - Optimize N+1 queries with @EntityGraph
 
-### What is @EntityGraph and how to use it?
+### 19 What is @EntityGraph and how to use it?
 ```java
 @EntityGraph(attributePaths = {"orders", "orders.items"})
 List<User> findAll();
@@ -250,7 +250,7 @@ public class User {
 }
 ```
 
-### Common pitfalls to avoid in Spring Data JPA:
+### 20 Common pitfalls to avoid in Spring Data JPA:
 - Using findAll() without pagination on large datasets
 - Not using @Transactional with @Modifying queries
 - Creating too many custom repository methods instead of using Specifications
