@@ -80,118 +80,51 @@
 
 **Q32: How do you implement filtering and sorting in REST APIs?**
 
-### Security & Authentication
-**Q33: How do you secure REST APIs?**
-
-**Q34: What is JWT? How do you implement JWT authentication?**
-
-**Q35: How do you implement role-based authorization in REST APIs?**
-
-**Q36: What is CORS? How do you handle it?**
-
-**Q37: How do you prevent common security vulnerabilities in REST APIs?**
 
 ### Integration & Testing
-**Q38: How do you consume REST APIs in Java?**
+**Q33: How do you consume REST APIs in Java?**
 
-**Q39: What is RestTemplate? How do you use it?**
+**Q34: What is RestTemplate? How do you use it?**
 
-**Q40: What is WebClient? How is it different from RestTemplate?**
+**Q35: What is WebClient? How is it different from RestTemplate?**
 
-**Q41: How do you test REST APIs?**
+**Q36: How do you test REST APIs?**
 
-**Q42: How do you mock external REST API calls in tests?**
+**Q37: How do you mock external REST API calls in tests?**
 
 ---
 
 ## 📝 CODING Questions (Be Ready to Write)
 
-**Q43: Create a simple REST controller for User CRUD operations.**
+**Q38: Create a simple REST controller for User CRUD operations.**
 
-**Q44: Write a REST endpoint that accepts JSON request body.**
+**Q39: Write a REST endpoint that accepts JSON request body.**
 
-**Q45: Create an endpoint that returns paginated results.**
+**Q40: Create an endpoint that returns paginated results.**
 
-**Q46: Implement a REST endpoint with path variables and query parameters.**
+**Q41: Implement a REST endpoint with path variables and query parameters.**
 
-**Q47: Write exception handling for a REST API.**
+**Q42: Write exception handling for a REST API.**
 
-**Q48: Create a REST client using RestTemplate.**
+**Q43: Create a REST client using RestTemplate.**
 
 ---
 
 ## 🔧 ADVANCED Questions (Lower Priority)
 
 ### Performance & Optimization
-**Q49: How do you improve REST API performance?**
+**Q44: How do you improve REST API performance?**
 
-**Q50: What is caching in REST APIs? How do you implement it?**
+**Q45: How do you handle rate limiting in REST APIs?**
 
-**Q51: How do you handle rate limiting in REST APIs?**
+**Q46: What is connection pooling? How does it help API performance?**
 
-**Q52: What is connection pooling? How does it help API performance?**
+**Q47: How do you implement async processing in REST APIs?**
 
-**Q53: How do you implement async processing in REST APIs?**
 
-### Microservices & Architecture
-**Q54: How do REST APIs fit in microservices architecture?**
 
-**Q55: How do you handle service-to-service communication?**
-
-**Q56: What is API Gateway? When do you use it?**
-
-**Q57: How do you implement circuit breaker pattern for REST APIs?**
-
-**Q58: How do you handle distributed transactions across REST APIs?**
 
 ---
-
-## ⚡ QUICK-FIRE Questions (Know the Answers)
-
-**Q59: What is the default port for Spring Boot applications?**
-*Answer: 8080*
-
-**Q60: What annotation makes a class a REST controller?**
-*Answer: @RestController*
-
-**Q61: What HTTP method is used for creating resources?**
-*Answer: POST*
-
-**Q62: What HTTP method is used for updating entire resources?**
-*Answer: PUT*
-
-**Q63: What HTTP method is used for partial updates?**
-*Answer: PATCH*
-
-**Q64: What is the Content-Type for JSON?**
-*Answer: application/json*
-
-**Q65: What status code indicates resource not found?**
-*Answer: 404*
-
----
-
-## 🎪 TOOLS & FRAMEWORKS Questions (If Time Permits)
-
-### Development Tools
-**Q66: What tools do you use for REST API development?**
-
-**Q67: How do you document REST APIs?**
-
-**Q68: What is Swagger/OpenAPI? How do you use it?**
-
-**Q69: What tools do you use for API testing?**
-
-**Q70: How do you monitor REST API performance?**
-
-### Frameworks & Libraries
-**Q71: What is Spring WebMVC? How does it support REST?**
-
-**Q72: What is Jackson? How does it work with REST APIs?**
-
-**Q73: What is the difference between Spring Boot and Spring MVC for REST?**
-
-**Q74: What other Java frameworks can be used for REST APIs?**
 
 ---
 
