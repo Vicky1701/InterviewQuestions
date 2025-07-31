@@ -9,23 +9,66 @@
 - Maps Java objects to database tables automatically
 - Handles database operations through objects, not SQL
 
-**JDBC vs Hibernate:**
-- **JDBC:** You write SQL queries manually, handle connections, map results to objects yourself
-- **Hibernate:** Automatically generates SQL, manages connections, maps objects to tables
-- **Example:** 
-  - JDBC: `SELECT * FROM student WHERE id = ?`
-  - Hibernate: `session.get(Student.class, studentId)`
+**🔍 JDBC vs Hibernate - The Key Differences:**
+
+| Aspect | JDBC | Hibernate |
+|--------|------|-----------|
+| **Code Style** | Write SQL manually | Work with objects |
+| **Mapping** | Manual ResultSet to Object | Automatic Object-Table mapping |
+| **Database Dependency** | Database-specific SQL | Database independent |
+| **Boilerplate Code** | Lots of repetitive code | Minimal code |
+
+**📝 Simple Example:**
+```java
+// JDBC Way (Manual & More Code)
+String sql = "SELECT * FROM student WHERE id = ?";
+PreparedStatement ps = connection.prepareStatement(sql);
+ps.setInt(1, studentId);
+ResultSet rs = ps.executeQuery();
+// Manual mapping to object...
+
+// Hibernate Way (Automatic & Less Code)
+Student student = session.get(Student.class, studentId);
+```
 
 ### 2. Explain the Hibernate architecture
 
 **Key Components:**
-- **SessionFactory:** Creates Session objects (one per application, thread-safe)
-- **Session:** Interface between Java app and database (not thread-safe)
-- **Transaction:** Manages database transactions
-- **Query:** For HQL/SQL queries
-- **Configuration:** Reads config files and creates SessionFactory
+- **Configuration:**
+- Reads config files and creates SessionFactory
+- Reads settings from hibernate.cfg.xml or hibernate.properties.
+- Contains database connection info, dialect, mappings, and other properties.
+- Responsible for bootstrapping Hibernate.
+  
+- **SessionFactory:**
+- A heavyweight object created once during application startup.
+- Responsible for creating Session objects.
+- Immutable and thread-safe.
+- Holds metadata about mappings and configurations.
+
+- **Session:**
+- Interface between Java app and database (not thread-safe)
+- A lightweight, non-thread-safe object.
+- Used to interact with the database (CRUD operations).
+- Wraps a JDBC connection.
+  
+- **Transaction:**
+- Manages database transactions
+- Helps manage commit/rollback behavior.
+- Ensures ACID properties.
+  
+- **Query:**
+- For HQL/SQL queries
+- Used to fetch and manipulate data.
 
 **Flow:** Configuration → SessionFactory → Session → Transaction → Database
+
+**🔄 Flow Process:**
+```
+Configuration → SessionFactory → Session → Transaction → Database
+    ↓              ↓               ↓          ↓           ↓
+ Read Config   Create Factory   Get Session  Start Work  Execute SQL
+```
 
 ### 3. What is ORM? What problems does it solve?
 
@@ -54,12 +97,9 @@
 
 ### 1. What is hibernate.cfg.xml?
 
-**Purpose:** Main configuration file for Hibernate
-
-**Contains:**
-- Database connection details (URL, username, password)
-- Hibernate properties (dialect, show_sql, hbm2ddl.auto)
-- Mapping file locations
+**Purpose:** 
+-hibernate.cfg.xml is the primary configuration file used by Hibernate to set up and initialize the core infrastructure. 
+-It tells Hibernate how to connect to the database and provides necessary settings like dialect, driver class, connection URL, credentials, and mapping files or annotated classes.
 
 **Example:**
 ```xml
@@ -74,7 +114,9 @@
 
 ### 2. What is .hbm.xml mapping file?
 
-**Purpose:** Maps Java class to database table (XML-based mapping)
+**Purpose:** 
+-Maps Java class to database table (XML-based mapping)
+-.hbm.xml is a Hibernate mapping file used to map Java classes (POJOs) to database tables without using annotations.
 
 **Example:**
 ```xml
@@ -123,14 +165,15 @@ public class Student {
 
 ### 1. What is Hibernate Session?
 
-**Hibernate Session:**
-- Interface between Java application and database
-- Short-lived, not thread-safe
-- Represents single unit of work
+**🔄 HTTP Session vs Hibernate Session:**
 
-**vs HTTP Session:**
-- HTTP Session: Stores user data across web requests
-- Hibernate Session: Manages database operations
+| HTTP Session | Hibernate Session |
+|--------------|------------------|
+| Stores user data across web requests | Manages database operations |
+| Lives across multiple page visits | Lives for single database operation |
+| Web layer concept | Persistence layer concept |
+| Stores shopping cart, login info | Tracks entity changes, executes SQL |
+
 
 ### 2. Entity Lifecycle
 
