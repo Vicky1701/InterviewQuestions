@@ -411,7 +411,6 @@ final class Circle implements Shape {
 
 ---
 
-## 💡 Expert Level Concepts (3+ Years)
 
 ### Q21: Interface design patterns?
 

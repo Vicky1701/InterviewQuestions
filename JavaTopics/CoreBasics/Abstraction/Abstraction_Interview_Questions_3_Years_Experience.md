@@ -341,7 +341,6 @@ AbstractClass obj = (AbstractClass) clazz.newInstance(); // What happens?
 
 ---
 
-## 💡 Expert Level Concepts (3+ Years)
 
 ### Q21: Abstract classes and design patterns?
 
