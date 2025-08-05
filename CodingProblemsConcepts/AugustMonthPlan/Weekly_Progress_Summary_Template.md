@@ -7,14 +7,14 @@
 
 ## 📊 **WEEK OVERVIEW**
 
-### **Completion Status**: 0/7 ✅
+### **Completion Status**: 1/7 ✅
 ```
 Mon  Tue  Wed  Thu  Fri  Sat  Sun
-⬜   ⬜   ⬜   ⬜   ⬜   ⬜   ⬜
+✅   ⬜   ⬜   ⬜   ⬜   ⬜   ⬜
 ```
 
 ### **Problems Tackled This Week**:
-1. **Day 1**: Two Sum (#1) - ⬜
+1. **Day 1**: Two Sum (#1) - ✅ (25 min)
 2. **Day 2**: Valid Parentheses (#20) - ⬜
 3. **Day 3**: Merge Two Sorted Lists (#21) - ⬜
 4. **Day 4**: Best Time to Buy/Sell Stock (#121) - ⬜

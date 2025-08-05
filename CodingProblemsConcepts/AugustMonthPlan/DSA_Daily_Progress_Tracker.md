@@ -20,7 +20,7 @@
 
 | Day | Date | Problem | Status | Time Taken | Difficulty | Pattern Learned | Notes |
 |-----|------|---------|--------|------------|------------|----------------|-------|
-| 1 | Aug 5 | Two Sum (#1) | ⬜ | - | Easy | HashMap lookup | |
+| 1 | Aug 5 | Two Sum (#1) | ✅ | 25 min | Easy | HashMap lookup | Used HashMap for O(n) solution |
 | 2 | Aug 6 | Valid Parentheses (#20) | ⬜ | - | Easy | Stack matching | |
 | 3 | Aug 7 | Merge Two Sorted Lists (#21) | ⬜ | - | Easy | Two pointers | |
 | 4 | Aug 8 | Best Time to Buy/Sell Stock (#121) | ⬜ | - | Easy | DP basics | |
@@ -28,7 +28,7 @@
 | 6 | Aug 10 | Invert Binary Tree (#226) | ⬜ | - | Easy | Tree traversal | |
 | 7 | Aug 11 | Maximum Subarray (#53) | ⬜ | - | Easy | Kadane's algorithm | |
 
-**Week 1 Progress**: 0/7 ⬜⬜⬜⬜⬜⬜⬜
+**Week 1 Progress**: 1/7 ✅⬜⬜⬜⬜⬜⬜
 
 ---
 
@@ -153,14 +153,14 @@
 
 ## 🔥 **STREAK TRACKER**
 
-### **Current Streak**: 0 days 🎯
-### **Longest Streak**: 0 days 🏆
-### **Total Problems Solved**: 0/56 📊
+### **Current Streak**: 1 days 🎯
+### **Longest Streak**: 1 days 🏆
+### **Total Problems Solved**: 1/56 📊
 
 ```
 Streak Visualization:
 Day: 1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20
-     ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜
+     ✅ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜
 
 Day: 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
      ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜
