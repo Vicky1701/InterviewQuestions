@@ -63,6 +63,7 @@
 ### Question 15
 
 **Difference between 2NF and 3NF (Normalization)**
+**Explain EXIT keyword How it will work**
 
 ### Question 16
 
