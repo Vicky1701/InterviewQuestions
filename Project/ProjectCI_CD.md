@@ -8,6 +8,7 @@ Developer Code → Git Push → Jenkins/GitLab CI → Build → Test → Deploy 
 ```
 
 ### **Key CI/CD Components We Used:**
+
 - **Source Control:** GitLab with feature branch workflows
 - **Build Tool:** Maven for Java microservices, npm for React frontend
 - **CI Platform:** GitLab CI/Jenkins (mention both as options)
@@ -19,9 +20,28 @@ Developer Code → Git Push → Jenkins/GitLab CI → Build → Test → Deploy 
 
 ## **Common CI/CD Interview Questions & Answers**
 
+---
+
+## **Additional Basic CI/CD Interview Questions**
+
+### Q: What is CI/CD and why is it important?
+**A:** "CI/CD stands for Continuous Integration and Continuous Deployment/Delivery. It helps automate the process of building, testing, and deploying code, ensuring faster and more reliable releases. It reduces manual errors and helps teams deliver features quickly."
+
+### Q: What steps did you follow before pushing your code for deployment?
+**A:** "I made sure my code passed all unit tests, followed coding standards, and was properly documented. I also checked that my microservice could run in a container and that configuration was externalized for different environments."
+
+### Q: Have you ever fixed a build or deployment failure?
+**A:** "Yes, sometimes my code changes caused build failures due to missing dependencies or test failures. I would check the pipeline logs, fix the issues, and push the changes again. For deployment issues, I worked with DevOps to troubleshoot and resolve them."
+
+### Q: How do you ensure your code is ready for CI/CD?
+**A:** "I write automated tests, follow best practices for code quality, and make sure my service can run in a container. I also add health check endpoints and externalize configuration so it works in different environments."
+
+### Q: What tools did you use for CI/CD in your project?
+**A:** "We used GitLab CI and Jenkins for our pipelines, Maven for building Java services, and SonarQube for code quality checks. Docker was used for containerization, and Kubernetes for orchestration."
+
 ### **1. "How was CI/CD implemented in your project?"**
 
-**Answer:** 
+**Answer:**
 "In the MobiLytix project, we had a comprehensive CI/CD pipeline for our 11 microservices. As a developer, I was responsible for writing the application code, unit tests, and ensuring my code passed through our automated pipeline.
 
 Our process worked like this:
@@ -195,7 +215,7 @@ This collaboration helped us achieve high availability and automatic scaling for
 
 **Task:** I needed to make our services more deployment-friendly and work with the DevOps team to improve our CI/CD pipeline.
 
-**Action:** 
+**Action:**
 - I implemented comprehensive health check endpoints for all our services
 - I externalized all configuration using Spring Boot profiles
 - I worked with DevOps to create proper Docker images with multi-stage builds
