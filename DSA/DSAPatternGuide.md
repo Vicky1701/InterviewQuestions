@@ -1,18 +1,18 @@
 
 ## 7-Day DSA Pattern Mastery Plan
-
 ## Weekly DSA Pattern Mastery Plan (Repeat Each Week)
 
-**Learning Order**
--Two Pointers (Day 1-2) - Most intuitive, visual
--Sliding Window (Day 2-3) - Natural extension of two pointers
--Hashing (Day 3-4) - Common and powerful
--Binary Search (Day 4-5) - Clear logic pattern
--BFS/DFS (Day 5-6) - Graph fundamentals
--Recursion (Day 6-7) - Thinking pattern
--Greedy (Day 7) - Decision-making pattern
+**Learning Order:**
+- **Two Pointers** 
+- **Sliding Window** 
+- **Hashing** (Day 3-4): 
+- **Binary Search** 
+- **BFS/DFS** 
+- **Recursion** 
+- **Greedy**
 
-Each day, focus on one pattern and solve 3 LeetCode problems. After 7 days, repeat the cycle with new problems for each pattern.
+Each day, focus on one pattern and solve 3 LeetCode problems.  
+After 7 days, repeat the cycle with new problems for each pattern.
 
 ### Day 1 (Thursday): Two Pointers
 - [LeetCode #1] Two Sum
