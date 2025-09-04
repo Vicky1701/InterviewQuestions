@@ -11,6 +11,26 @@
 9. **Check if a string contains only digits**
 10. **Find the longest common prefix among a set of strings**
 
+Check if a String is a Rotation of Another (e.g., "ABCD" and "CDAB" -> true)
+
+Find all Permutations of a String (e.g., "ABC" -> [ABC, ACB, BAC, BCA, CBA, CAB])
+
+Find the Longest Palindromic Substring (e.g., "babad" -> "bab")
+
+Implement atoi (String to Integer) (Handle overflow, whitespace, signs)
+
+Minimum Window Substring (Find smallest substring in s containing all chars of t)
+
+Group Anagrams (Group words from a list that are anagrams of each other)
+
+Valid Parentheses (Check if a string of brackets ()[]{} is balanced)
+
+Longest Repeating Character Replacement (Find longest substring after replacing k chars)
+
+Decode String (Decode patterns like "3[a2[c]]" to "accaccacc")
+
+Most Common Word (Find most frequent word, ignoring case, punctuation, and banned words)
+
 ---
 
 ## 2. Array Problems (10)
